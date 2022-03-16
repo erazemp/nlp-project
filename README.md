@@ -1,1 +1,1 @@
-# nlp-project3
+# Project 3: Cross-lingual sense disambiguation
