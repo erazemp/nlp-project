@@ -18,7 +18,12 @@ The Corpus will be taken from Gigafida http://eng.slovenscina.eu/korpusi/gigafid
 
 ## Folder structure
 
-**TODO**
+Folder `src` contains source code for our project.
+It is further divided into subfolders:
+
+* `corpus_construction`: contains code for constructing the corpus
+
+  * `preprocess`: contains file `preprocess.py` which extracts pairs of sentences with same target word from Gigafida and stores them together in a JSON file. 
 
 ## Instructions (How to run)
  **To-do**
