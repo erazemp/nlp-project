@@ -23,7 +23,14 @@ It is further divided into subfolders:
 
 * `corpus_construction`: contains code for constructing the corpus
 
-  * `preprocess`: contains file `preprocess.py` which extracts pairs of sentences with same target word from Gigafida and stores them together in a JSON file. 
+  * `preprocess`: contains file `preprocess.py` which extracts pairs of sentences with same target word from Gigafida and stores them together in a JSON file.
+  Script returns baseline for further corpus construction to extract context from sentences.
+    * script requires following arguments, editable in `main` function of the script:
+      * `gigafida_dirname`: path to corpus directory (that contains only .xml files)
+      * `homonyms_filename`: path to file that has homonyms listed line by line in a text file
+      * `corpus_filename`: name of the JSON file that is created at the end and contains pairs of sentences which both contain a homonym lemma
+  * `context_extraction`: contains variable attempts for extracting context from sentences obtained in `preprocess` step. 
+  Each attempt will be in its own folder together with source code and final results.
 
 ## Instructions (How to run)
  **To-do**

@@ -1,72 +1,112 @@
 import xml.etree.ElementTree as ET
 import json
+import os
 
 
-def read_file(filename, words):
+def read_homonyms_file(filename):
+    homonyms = []
+    with open(filename) as file:
+        lines = file.readlines()
+        for line in lines:
+            homonyms.append(line.rstrip())
+    return homonyms
+
+
+def extract_sentences_from_corpus(directory, homonyms):
+    homonyms_sentences = {}
+    # TEMP
+    i = 0
+    for filename in os.listdir(directory):
+        # TEMP for quick assessment
+        i = i + 1
+        if i > 200:
+            break
+        # end TEMP
+        print('parsing file ', filename)
+        f = os.path.join(directory, filename)
+        homonyms_sentences = extract_homonym_sentences(f, homonyms, homonyms_sentences)
+    return homonyms_sentences
+
+
+def extract_homonym_sentences(filename, homonyms, homonym_sentences):
     tree = ET.parse(filename)
     root = tree.getroot()
-    sentences = {}
-    for sentence_xml in root.iter('{http://www.tei-c.org/ns/1.0}s'):
+    for sentence_parsed in root.iter('{http://www.tei-c.org/ns/1.0}s'):
+        # initialization of properties
         sentence = ''
         lemma = ''
-        include = False
-        for word in sentence_xml:
-            if not word.text:
+        contains_homonym_lemma = False
+        start_index = -1
+        end_index = -1
+        for word_xml in sentence_parsed:
+            # if entry is not a word, skip it
+            if not word_xml.text:
                 continue
-            if "lemma" in word.attrib and word.attrib["lemma"] in words:
-                include = True
-                lemma = word.attrib["lemma"]
-                if not word.attrib["lemma"] in sentences.keys():
-                    sentences[word.attrib["lemma"]] = []
+            # check if current word has a lemma that is defined as homonym
+            if "lemma" in word_xml.attrib and word_xml.attrib["lemma"] in homonyms:
+                contains_homonym_lemma = True
+                lemma = word_xml.attrib["lemma"]
+                # check if entry for this lemma already exists, if not, create one
+                if not word_xml.attrib["lemma"] in homonym_sentences.keys():
+                    homonym_sentences[word_xml.attrib["lemma"]] = []
+                # calculate start and end index of lemma word in a sentence
+                start_index = len(sentence)
+                end_index = start_index + len(word_xml.text) - 1
             # don't add space at beginning of the sentence
-            if sentence and not word.text in (".", ",", "?", ":", "!"):
+            if sentence and not word_xml.text in (".", ",", "?", ":", "!"):
                 sentence = sentence + " "
-            sentence = sentence + word.text
-        if include:
-            sentences[lemma].append(sentence)
-    return sentences
+            # add current word to building sentence
+            sentence = sentence + word_xml.text
+        # if in this sentence we have a homonym lemma, add it to our list
+        if contains_homonym_lemma:
+            sentence_entry = SentenceEntry(sentence, start_index, end_index)
+            homonym_sentences[lemma].append(sentence_entry)
+    return homonym_sentences
 
 
-def construct_output_temp(sentences):
+def construct_output_temp(homonyms_sentences, json_filename):
     outputs = []
-    for word_in_question in sentences:
-        list_of_sentences = sentences[word_in_question]
+    for word_in_question in homonyms_sentences:
+        list_of_sentences = homonyms_sentences[word_in_question]
+        # if an entry has more than 1 entry (sentence), we can construct a pair
         if len(list_of_sentences) > 1:
-            output = OutputEntry(word_in_question)
-            output.with_sentence1(list_of_sentences[0], -2, -2)
-            output.with_sentence2(list_of_sentences[1], -2, -2)
-            outputs.append(output)
-    json_str = json.dumps([ob.__dict__ for ob in outputs])
-    print(json_str)
+            for i, sentence1 in enumerate(list_of_sentences):
+                for j, sentence2 in enumerate(list_of_sentences):
+                    if i <= j:
+                        continue
+                    output = OutputEntry(word_in_question, sentence1, sentence2)
+                    outputs.append(output)
+    json_str = json.dumps([ot.__dict__ for ot in outputs])
+    # save to JSON file
+    with open(json_filename, "w") as outfile:
+        outfile.write(json_str)
 
 
 class OutputEntry:
-    def __init__(self, word):
+    def __init__(self, word, sentence1_object, sentence2_object):
         self.word = word
-        self.sentence1 = ""
-        self.sentence2 = ""
-        self.start1 = -1
-        self.end1 = -1
-        self.start2 = -1
-        self.end2 = -1
+        self.sentence1 = sentence1_object.sentence
+        self.sentence2 = sentence2_object.sentence
+        self.start1 = sentence1_object.start
+        self.end1 = sentence1_object.end
+        self.start2 = sentence2_object.start
+        self.end2 = sentence2_object.end
         self.same_context = False
 
-    def with_sentence1(self, sentence, start, end):
-        self.sentence1 = sentence
-        self.start1 = start
-        self.end1 = end
 
-    def with_sentence2(self, sentence, start, end):
-        self.sentence2 = sentence
-        self.start2 = start
-        self.end2 = end
+class SentenceEntry:
+    def __init__(self, sentence, start, end):
+        self.sentence = sentence
+        self.start = start
+        self.end = end
 
 
 if __name__ == '__main__':
-    filename = '../../../Gigafida_corpus/F0000008.xml'
-    words = ('letos', 'shraniti')
-    sentences = read_file(filename, words)
-    # print(sentences)
-    construct_output_temp(sentences)
+    gigafida_dirname = '../../../Gigafida_corpus'
+    homonyms_filename = 'homonyms.txt'
+    corpus_filename = 'corpus.json'
+    homonym = read_homonyms_file(homonyms_filename)
+    homonyms_sentences = extract_sentences_from_corpus(gigafida_dirname, homonym)
+    construct_output_temp(homonyms_sentences, corpus_filename)
 
 
