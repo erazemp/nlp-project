@@ -29,6 +29,7 @@ It is further divided into subfolders:
       * `gigafida_dirname`: path to corpus directory (that contains only .xml files)
       * `homonyms_filename`: path to file that has homonyms listed line by line in a text file
       * `corpus_filename`: name of the JSON file that is created at the end and contains pairs of sentences which both contain a homonym lemma
+      * `word_limit`: limits maximum number of pairs of same lemma sentences a homonym can have
   * `context_extraction`: contains variable attempts for extracting context from sentences obtained in `preprocess` step. 
   Each attempt will be in its own folder together with source code and final results.
 
