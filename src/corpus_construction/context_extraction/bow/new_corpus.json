@@ -1,0 +1,44 @@
+[
+  {
+    "word": "prst",
+    "sentence1": "Minister Vizjak je po sestanku s trgovci pribil, da je treba zadevi \" priti do dna \", ugotoviti, kdo je odgovoren za podra\u017eitve, s prstom pokazati nanj in prepre\u010diti nov val podra\u017eitev.",
+    "lemma_sentence1": "minister Vizjak biti po sestanek z trgovec pribiti da biti treba zadeva priti do dno ugotoviti kdo biti odgovoren za podra\u017eitev z prst pokazati name in prepre\u010diti nov val podra\u017eitev",
+    "lemma_sentence2": "in ve\u010d po vojna pobit biti najti pod na\u0161 prst velik biti njen potreba po kulturen boj",
+    "sentence2": "In ve\u010d po vojni pobitih bomo na\u0161li pod na\u0161o prstjo, ve\u010dja bo njena potreba po kulturnem boju.",
+    "start1": 130,
+    "lemma_word_index1": 22,
+    "end1": 135,
+    "start2": 43,
+    "lemma_word_index2": 9,
+    "end2": 48,
+    "same_context": true
+  },
+  {
+    "word": "prst",
+    "sentence1": "Kaj vse bi dal, da bi lahko zopet za\u017eivel z mojo rjavooko srnico, ki bi me spra\u0161evala, \" Ma\u010dek, kdaj se vrne\u0161? \", me objela in mi s svojimi ne\u017enimi prsti \u0161la skozi lase in prijetno zadrhtela, ko bi prislonil svoje ustnice k njenim in si \u017eelel, da bi ta trenutek ve\u010dno trajal!",
+    "lemma_sentence1": "kaj ves biti dati da biti lahko zopet za\u017eiveti z moj rjavook srnica ki biti jaz spra\u0161evati ma\u010dek kdaj se vrniti jaz objeti in jaz z svoj ne\u017een prst iti skozi las in prijetno zadrhteti ko biti prisloniti svoj ustnica k njen in se \u017eeleti da biti ta trenutek ve\u010dno trajati",
+    "lemma_sentence2": "in ve\u010d po vojna pobit biti najti pod na\u0161 prst velik biti njen potreba po kulturen boj",
+    "sentence2": "In ve\u010d po vojni pobitih bomo na\u0161li pod na\u0161o prstjo, ve\u010dja bo njena potreba po kulturnem boju.",
+    "start1": 147,
+    "lemma_word_index1": 28,
+    "end1": 151,
+    "start2": 43,
+    "lemma_word_index2": 9,
+    "end2": 48,
+    "same_context": true
+  },
+  {
+    "word": "prst",
+    "sentence1": "Kaj vse bi dal, da bi lahko zopet za\u017eivel z mojo rjavooko srnico, ki bi me spra\u0161evala, \" Ma\u010dek, kdaj se vrne\u0161? \", me objela in mi s svojimi ne\u017enimi prsti \u0161la skozi lase in prijetno zadrhtela, ko bi prislonil svoje ustnice k njenim in si \u017eelel, da bi ta trenutek ve\u010dno trajal!",
+    "lemma_sentence1": "kaj ves biti dati da biti lahko zopet za\u017eiveti z moj rjavook srnica ki biti jaz spra\u0161evati ma\u010dek kdaj se vrniti jaz objeti in jaz z svoj ne\u017een prst iti skozi las in prijetno zadrhteti ko biti prisloniti svoj ustnica k njen in se \u017eeleti da biti ta trenutek ve\u010dno trajati",
+    "lemma_sentence2": "minister Vizjak biti po sestanek z trgovec pribiti da biti treba zadeva priti do dno ugotoviti kdo biti odgovoren za podra\u017eitev z prst pokazati name in prepre\u010diti nov val podra\u017eitev",
+    "sentence2": "Minister Vizjak je po sestanku s trgovci pribil, da je treba zadevi \" priti do dna \", ugotoviti, kdo je odgovoren za podra\u017eitve, s prstom pokazati nanj in prepre\u010diti nov val podra\u017eitev.",
+    "start1": 147,
+    "lemma_word_index1": 28,
+    "end1": 151,
+    "start2": 130,
+    "lemma_word_index2": 22,
+    "end2": 135,
+    "same_context": true
+  }
+]
