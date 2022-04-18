@@ -1,0 +1,49 @@
+<!-- This is the DTD for sloWNet, the Slovene version of WordNet -->
+<!-- The DTD is based on DEBVISDIC format -->
+<!-- 2014-01-20, et -->
+
+<!ENTITY  % langs 'sl | slv | en | eng | fr'>
+
+<!ELEMENT WN (SYNSET+)>
+<!ELEMENT WORDNET (SYNSET+)>
+
+<!ELEMENT SYNSET (ID, POS, BCS?, STAMP*, SYNONYM+, DEF+, USAGE*, ILR*, CLUSTER?, DOMAIN*, NL?)>
+
+<!ELEMENT ID (#PCDATA)>
+
+<!ELEMENT POS (#PCDATA)>
+
+<!ELEMENT BCS (#PCDATA)>
+
+<!ELEMENT STAMP (#PCDATA)>
+
+<!ELEMENT SYNONYM (LITERAL)*>
+<!ATTLIST SYNONYM
+          xml:lang (%langs;) #REQUIRED>
+
+<!ELEMENT LITERAL (#PCDATA)>
+<!ATTLIST LITERAL
+          lnote CDATA #IMPLIED
+          pwnid CDATA #IMPLIED
+          sense CDATA #IMPLIED>
+
+<!ELEMENT DEF (#PCDATA)>
+<!ATTLIST DEF
+          xml:lang (%langs;) #REQUIRED>
+
+<!ELEMENT USAGE (#PCDATA | LITERAL)*>
+<!ATTLIST USAGE
+          lnote CDATA #IMPLIED
+          xml:lang (%langs;) #REQUIRED>
+
+<!ELEMENT CLUSTER (#PCDATA)>
+<!ATTLIST CLUSTER
+          type CDATA #REQUIRED>
+
+<!ELEMENT NL (#PCDATA)>
+
+<!ELEMENT ILR (#PCDATA)>
+<!ATTLIST ILR
+          type CDATA #REQUIRED>
+
+<!ELEMENT DOMAIN (#PCDATA)>
