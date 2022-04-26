@@ -1,5 +1,22 @@
 import json
+import string
+from string import digits
+
 import scipy.spatial
+
+
+def clean_text(corpus_entries):
+    for entry in corpus_entries:
+        # print(entry['sentence1'])
+        entry['sentence1'] = entry['sentence1'].lower().translate(str.maketrans('', '', string.punctuation))
+        entry['sentence1'] = entry['sentence1'].translate(str.maketrans('', '', digits))
+        entry['lemma_sentence1'] = entry['lemma_sentence1'].lower().translate(str.maketrans('', '', string.punctuation))
+        entry['lemma_sentence1'] = entry['lemma_sentence1'].lower().translate(str.maketrans('', '', digits))
+        entry['lemma_sentence2'] = entry['lemma_sentence2'].lower().translate(str.maketrans('', '', string.punctuation))
+        entry['lemma_sentence2'] = entry['lemma_sentence2'].translate(str.maketrans('', '', digits))
+        entry['sentence2'] = entry['sentence2'].lower().translate(str.maketrans('', '', string.punctuation))
+        entry['sentence2'] = entry['sentence2'].translate(str.maketrans('', '', digits))
+        # print(entry['sentence1'])
 
 
 def read_corpus(filename):
@@ -88,6 +105,10 @@ if __name__ == '__main__':
     corpus_file = '../../preprocess/corpus.json'
     window_size = 2
     corpus_entries = read_corpus(corpus_file)
+    # clean_text(corpus_entries)
+    #remove_stop_words(corpus_entries)
     bow = construct_bow(corpus_entries, window_size)
+    #remove_stop_words(bow)
     updated_pairs = fill_vectors(bow, corpus_entries, 0.7)
     save_json_file(updated_pairs, 'new_corpus.json')
+    print("done")
