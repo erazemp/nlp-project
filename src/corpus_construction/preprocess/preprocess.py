@@ -76,7 +76,7 @@ def extract_sentences_from_corpus(directory, homonyms):
     for filename in os.listdir(directory):
         # TEMP for quick assessment
         i = i + 1
-        if i > 5000:
+        if i > 2000:
             break
         # end TEMP
         #print('parsing file ', filename)
@@ -91,16 +91,12 @@ def extract_homonym_sentences(filename, homonyms, homonym_sentences):
     root = tree.getroot()
     for sentence_parsed in root.iter('{http://www.tei-c.org/ns/1.0}s'):
         # initialization of properties
-        # print("sentece:", sentence_parsed.text)
-        sentence = ''
-        lemma_sentence = ''
+        sentence_entry = SentenceEntry()
         lemma = ''
         contains_homonym_lemma = False
-        start_index = -1
-        end_index = -1
-        lemma_index = -1
         word_index = -1
-
+        quote_recorded = False
+        insert_space = True
         for word_xml in sentence_parsed:
             # if entry is not a word, skip it
             if not word_xml.text:
@@ -113,31 +109,38 @@ def extract_homonym_sentences(filename, homonyms, homonym_sentences):
                 if not stop_word_check(word_xml.attrib["lemma"]):
                     continue
             # check if current word has a lemma
-            if "lemma" in word_xml.attrib:
+            if word_xml.tag == '{http://www.tei-c.org/ns/1.0}w':
                 word_index = word_index + 1
                 # check if word lemma is a homonym
                 if word_xml.attrib["lemma"] in homonyms:
-                    lemma_index = word_index
+                    sentence_entry.lemma_word_index = word_index
                     contains_homonym_lemma = True
                     lemma = word_xml.attrib["lemma"]
                     # check if entry for this lemma already exists, if not, create one
                     if not word_xml.attrib["lemma"] in homonym_sentences.keys():
                         homonym_sentences[word_xml.attrib["lemma"]] = []
                     # calculate start and end index of lemma word in a sentence
-                    start_index = len(sentence)
-                    end_index = start_index + len(word_xml.text) - 1
-                if lemma_sentence:
-                    lemma_sentence = lemma_sentence + " "
-                lemma_sentence = lemma_sentence + word_xml.attrib["lemma"]
-            # don't add space at beginning of the sentence
-            if sentence and not word_xml.text in (".", ",", "?", ":", "!"):
-                sentence = sentence + " "
+                    sentence_entry.start = len(sentence_entry.sentence)
+                    sentence_entry.end = sentence_entry.start + len(word_xml.text) - 1
+                if sentence_entry.lemma_sentence:
+                    sentence_entry.lemma_sentence = sentence_entry.lemma_sentence + " "
+                sentence_entry.lemma_sentence = sentence_entry.lemma_sentence + word_xml.attrib["lemma"]
+                if sentence_entry.sentence and insert_space:
+                    sentence_entry.sentence = sentence_entry.sentence + " "
+                insert_space = True
+            # check if current entry is a character and process it
+            elif word_xml.tag == '{http://www.tei-c.org/ns/1.0}c':
+                # handle quotes
+                if word_xml.text == '\"':
+                    if sentence_entry.sentence and not quote_recorded:
+                        sentence_entry.sentence = sentence_entry.sentence + " "
+                        insert_space = False
+                    quote_recorded = not quote_recorded
             # add current word to building sentence
-            sentence = sentence + word_xml.text
+            sentence_entry.sentence = sentence_entry.sentence + word_xml.text
         # if in this sentence we have a homonym lemma, add it to our list
         #print(sentence)
         if contains_homonym_lemma:
-            sentence_entry = SentenceEntry(sentence, lemma_sentence, start_index, end_index, lemma_index)
             homonym_sentences[lemma].append(sentence_entry)
     return homonym_sentences
 
@@ -149,15 +152,14 @@ def construct_output_temp(homonyms_sentences, json_filename, word_limit):
         number_of_inputs = 0
         # if an entry has more than 1 entry (sentence), we can construct a pair
         if len(list_of_sentences) > 1:
-            for i, sentence1 in enumerate(list_of_sentences):
-                for j, sentence2 in enumerate(list_of_sentences):
-                    if number_of_inputs > word_limit:
-                        break
-                    if i <= j:
-                        continue
-                    output = OutputEntry(word_in_question, sentence1, sentence2)
-                    outputs.append(output)
-                    number_of_inputs = number_of_inputs + 1
+            for i in range(0, len(list_of_sentences) - 1, 2):
+                sentence1 = list_of_sentences[i]
+                sentence2 = list_of_sentences[i + 1]
+                if number_of_inputs > word_limit:
+                    break
+                output = OutputEntry(word_in_question, sentence1, sentence2)
+                outputs.append(output)
+                number_of_inputs = number_of_inputs + 1
     json_str = json.dumps([ot.__dict__ for ot in outputs])
     # save to JSON file
     with open(json_filename, "w") as outfile:
@@ -181,12 +183,12 @@ class OutputEntry:
 
 
 class SentenceEntry:
-    def __init__(self, sentence, lemma_sentence, start, end, lemma_index):
-        self.sentence = sentence
-        self.lemma_sentence = lemma_sentence
-        self.start = start
-        self.end = end
-        self.lemma_word_index = lemma_index
+    def __init__(self):
+        self.sentence = ''
+        self.lemma_sentence = ''
+        self.start = -1
+        self.end = -1
+        self.lemma_word_index = -1
 
 
 if __name__ == '__main__':

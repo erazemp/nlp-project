@@ -21,15 +21,15 @@ def clean_text(corpus_entries):
 
 def read_corpus(filename):
     # read JSON file created in preprocess step
-    f = open(filename)
-    data = json.load(f)
-    f.close()
-    return data
+    with open(filename, "r") as file:
+        data = json.load(file)
+        return data
 
 
 def construct_bow(pairs, window):
     bow_builder = BowBuilder(window)
     # iterate through all the sentences to get context vectors
+    print('Constructing bow')
     for pair in pairs:
         word = pair["word"]
         bow_builder.construct_neighbouring_vector(pair["lemma_sentence1"], word, pair["lemma_word_index1"])
@@ -38,24 +38,46 @@ def construct_bow(pairs, window):
 
 
 def fill_vectors(bow_builder, pairs, cosine_distance_threshold):
+    print('Filling vectors')
     for pair in pairs:
         word = pair["word"]
         context_vector1 = bow_builder.count_occurrences(pair["lemma_sentence1"], word, pair["lemma_word_index1"])
         context_vector2 = bow_builder.count_occurrences(pair["lemma_sentence2"], word, pair["lemma_word_index2"])
-        distance = calculate_cosine_distance(context_vector1, context_vector2)
+        distance = calculate_cosine_similarity(context_vector1, context_vector2)
         if distance > cosine_distance_threshold:
             pair["same_context"] = True
     return pairs
 
 
+def save_part_of_data_for_evaluation(pairs, json_filename, num_of_each_instance):
+    # save part of corpus into another json file for manual annotation / validation
+    print('Saving part of data')
+    same_context = 0
+    different_context = 0
+    part_corpus = []
+    for pair in pairs:
+        if same_context == num_of_each_instance and different_context == num_of_each_instance:
+            break
+        if pair["same_context"] and same_context < num_of_each_instance:
+            same_context = same_context + 1
+            part_corpus.append(pair)
+        elif not pair["same_context"] and different_context < num_of_each_instance:
+            different_context = different_context + 1
+            part_corpus.append(pair)
+    json_str = json.dumps([p for p in part_corpus])
+    with open(json_filename, "w") as outfile:
+        outfile.write(json_str)
+
+
 def save_json_file(pairs, json_filename):
+    print('Saving to JSON file')
     json_str = json.dumps([p for p in pairs])
     # save to JSON file
     with open(json_filename, "w") as outfile:
         outfile.write(json_str)
 
 
-def calculate_cosine_distance(vector1, vector2):
+def calculate_cosine_similarity(vector1, vector2):
     v1 = []
     v2 = []
     for word in vector1.keys():
@@ -111,4 +133,5 @@ if __name__ == '__main__':
     #remove_stop_words(bow)
     updated_pairs = fill_vectors(bow, corpus_entries, 0.7)
     save_json_file(updated_pairs, 'new_corpus.json')
+    save_part_of_data_for_evaluation(updated_pairs, 'manual_corpus.json', 10)
     print("done")
