@@ -1,5 +1,4 @@
 Gigafida_corpus
 src/corpus_construction/preprocess/corpus.json
-src/corpus_construction/context_extraction/bow/new_corpus.json
 /.idea/
 /__pycache__/
