@@ -1,13 +1,49 @@
-import json
 import string
 from string import digits
-
+import json
 import scipy.spatial
+
+
+# UTILS methods
+def read_json_file(filename):
+    # read JSON file created in preprocess step
+    with open(filename, "r") as file:
+        data = json.load(file)
+        return data
+
+
+def save_json_file(pairs, json_filename):
+    print('Saving to JSON file')
+    json_str = json.dumps([p for p in pairs])
+    # save to JSON file
+    with open(json_filename, "w") as outfile:
+        outfile.write(json_str)
+
+
+def save_part_of_data_for_evaluation(pairs, json_filename, num_of_each_instance):
+    # save part of corpus into another json file for manual annotation / validation
+    print('Saving part of data')
+    temp = {}
+    part_corpus = []
+    for pair in pairs:
+        target_word = pair["word"]
+        if target_word not in temp:
+            temp[target_word] = [0, 0]
+        if temp[target_word][0] == num_of_each_instance and temp[target_word][1] == num_of_each_instance:
+            continue
+        if pair["same_context"] and temp[target_word][0] < num_of_each_instance:
+            temp[target_word][0] = temp[target_word][0] + 1
+            part_corpus.append(pair)
+        elif not pair["same_context"] and temp[target_word][1] < num_of_each_instance:
+            temp[target_word][1] = temp[target_word][1] + 1
+            part_corpus.append(pair)
+    json_str = json.dumps([p for p in part_corpus])
+    with open(json_filename, "w") as outfile:
+        outfile.write(json_str)
 
 
 def clean_text(corpus_entries):
     for entry in corpus_entries:
-        # print(entry['sentence1'])
         entry['sentence1'] = entry['sentence1'].lower().translate(str.maketrans('', '', string.punctuation))
         entry['sentence1'] = entry['sentence1'].translate(str.maketrans('', '', digits))
         entry['lemma_sentence1'] = entry['lemma_sentence1'].lower().translate(str.maketrans('', '', string.punctuation))
@@ -16,14 +52,6 @@ def clean_text(corpus_entries):
         entry['lemma_sentence2'] = entry['lemma_sentence2'].translate(str.maketrans('', '', digits))
         entry['sentence2'] = entry['sentence2'].lower().translate(str.maketrans('', '', string.punctuation))
         entry['sentence2'] = entry['sentence2'].translate(str.maketrans('', '', digits))
-        # print(entry['sentence1'])
-
-
-def read_corpus(filename):
-    # read JSON file created in preprocess step
-    with open(filename, "r") as file:
-        data = json.load(file)
-        return data
 
 
 def construct_bow(pairs, window):
@@ -47,34 +75,6 @@ def fill_vectors(bow_builder, pairs, cosine_distance_threshold):
         if distance > cosine_distance_threshold:
             pair["same_context"] = True
     return pairs
-
-
-def save_part_of_data_for_evaluation(pairs, json_filename, num_of_each_instance):
-    # save part of corpus into another json file for manual annotation / validation
-    print('Saving part of data')
-    same_context = 0
-    different_context = 0
-    part_corpus = []
-    for pair in pairs:
-        if same_context == num_of_each_instance and different_context == num_of_each_instance:
-            break
-        if pair["same_context"] and same_context < num_of_each_instance:
-            same_context = same_context + 1
-            part_corpus.append(pair)
-        elif not pair["same_context"] and different_context < num_of_each_instance:
-            different_context = different_context + 1
-            part_corpus.append(pair)
-    json_str = json.dumps([p for p in part_corpus])
-    with open(json_filename, "w") as outfile:
-        outfile.write(json_str)
-
-
-def save_json_file(pairs, json_filename):
-    print('Saving to JSON file')
-    json_str = json.dumps([p for p in pairs])
-    # save to JSON file
-    with open(json_filename, "w") as outfile:
-        outfile.write(json_str)
 
 
 def calculate_cosine_similarity(vector1, vector2):
@@ -115,6 +115,7 @@ class BowBuilder:
     def get_neighboring_words(self, lemma_sentence, index):
         words = lemma_sentence.split(" ")
         start = index - self.n
+        # if word is at beginning or end of sentence, prevent out of bounds
         if start < 0:
             start = 0
         end = index + self.n + 1
@@ -124,14 +125,13 @@ class BowBuilder:
 
 
 if __name__ == '__main__':
-    corpus_file = '../../preprocess/corpus.json'
+    data_file = '../../preprocess/preprocessed_data.json'
+    results_file = 'bow_corpus.json'
+    part_results_file = 'bow_corpus_part.json'
     window_size = 2
-    corpus_entries = read_corpus(corpus_file)
-    # clean_text(corpus_entries)
-    #remove_stop_words(corpus_entries)
+    cosine_distance_threshold = 0.7
+    corpus_entries = read_json_file(data_file)
     bow = construct_bow(corpus_entries, window_size)
-    #remove_stop_words(bow)
-    updated_pairs = fill_vectors(bow, corpus_entries, 0.7)
-    save_json_file(updated_pairs, 'new_corpus.json')
-    save_part_of_data_for_evaluation(updated_pairs, 'manual_corpus.json', 10)
-    print("done")
+    updated_pairs = fill_vectors(bow, corpus_entries, cosine_distance_threshold)
+    save_json_file(updated_pairs, results_file)
+    save_part_of_data_for_evaluation(updated_pairs, part_results_file, 50)
