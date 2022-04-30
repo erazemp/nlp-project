@@ -25,7 +25,6 @@ def extract_homonyms(filename):
             for litertal in synonym_en:
                 litertal_en_list.append(litertal.text)
 
-
         # extract a list of all the slovenian usages
         usage_sl_list = []
         usage_sl = synonym.findall(".//USAGE[@{http://www.w3.org/XML/1998/namespace}lang='sl']")
@@ -65,7 +64,8 @@ def extract_homonyms(filename):
                 homonym_list[litertal.text].defin_en_list.update(defin_en_list)
                 homonym_list[litertal.text].counter += 1
             else:
-                homonym_list[litertal.text] = HomonymEntry(litertal.text, litertal_sl_list, litertal_en_list, usage_sl_list, usage_en_list, defin_sl_list,
+                homonym_list[litertal.text] = HomonymEntry(litertal.text, litertal_sl_list, litertal_en_list, usage_sl_list, usage_en_list,
+                                                           defin_sl_list,
                                                            defin_en_list)
 
     # sort the list by the number of slovene literals
@@ -90,7 +90,6 @@ def convert_homonym_json(homonym_list, filename, filename_obj):
     with open(filename, "w", encoding='utf-8') as outfile:
         for homoyn in homonym_list.values():
             outfile.write(homoyn.homonym + '\n')
-
 
 
 class HomonymEntry:
