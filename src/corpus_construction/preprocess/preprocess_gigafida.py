@@ -146,9 +146,9 @@ def construct_output_temp(homonyms_sentences, json_filename, word_limit):
                 output = OutputEntry(word_in_question, sentence1, sentence2)
                 outputs.append(output)
                 number_of_inputs = number_of_inputs + 1
-    json_str = json.dumps([ot.__dict__ for ot in outputs])
+    json_str = json.dumps([ot.__dict__ for ot in outputs], indent=2, ensure_ascii=False)
     # save to JSON file
-    with open(json_filename, "w") as outfile:
+    with open(json_filename, "w", encoding='utf-8') as outfile:
         outfile.write(json_str)
 
 

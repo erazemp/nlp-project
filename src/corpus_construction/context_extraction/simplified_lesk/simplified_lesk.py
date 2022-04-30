@@ -11,9 +11,9 @@ def read_json_file(filename):
 
 def save_json_file(pairs, json_filename):
     print('Saving to JSON file')
-    json_str = json.dumps([p for p in pairs])
+    json_str = json.dumps([p for p in pairs], indent=2, ensure_ascii=False)
     # save to JSON file
-    with open(json_filename, "w") as outfile:
+    with open(json_filename, "w", encoding='utf-8') as outfile:
         outfile.write(json_str)
 
 
@@ -34,8 +34,8 @@ def save_part_of_data_for_evaluation(pairs, json_filename, num_of_each_instance)
         elif not pair["same_context"] and temp[target_word][1] < num_of_each_instance:
             temp[target_word][1] = temp[target_word][1] + 1
             part_corpus.append(pair)
-    json_str = json.dumps([p for p in part_corpus])
-    with open(json_filename, "w") as outfile:
+    json_str = json.dumps([p for p in part_corpus], indent=2, ensure_ascii=False)
+    with open(json_filename, "w", encoding='utf-8') as outfile:
         outfile.write(json_str)
 
 
