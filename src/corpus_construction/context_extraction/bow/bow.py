@@ -42,18 +42,6 @@ def save_part_of_data_for_evaluation(pairs, json_filename, num_of_each_instance)
         outfile.write(json_str)
 
 
-def clean_text(corpus_entries):
-    for entry in corpus_entries:
-        entry['sentence1'] = entry['sentence1'].lower().translate(str.maketrans('', '', string.punctuation))
-        entry['sentence1'] = entry['sentence1'].translate(str.maketrans('', '', digits))
-        entry['lemma_sentence1'] = entry['lemma_sentence1'].lower().translate(str.maketrans('', '', string.punctuation))
-        entry['lemma_sentence1'] = entry['lemma_sentence1'].lower().translate(str.maketrans('', '', digits))
-        entry['lemma_sentence2'] = entry['lemma_sentence2'].lower().translate(str.maketrans('', '', string.punctuation))
-        entry['lemma_sentence2'] = entry['lemma_sentence2'].translate(str.maketrans('', '', digits))
-        entry['sentence2'] = entry['sentence2'].lower().translate(str.maketrans('', '', string.punctuation))
-        entry['sentence2'] = entry['sentence2'].translate(str.maketrans('', '', digits))
-
-
 def construct_bow(pairs, window):
     bow_builder = BowBuilder(window)
     # iterate through all the sentences to get context vectors

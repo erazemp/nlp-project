@@ -45,8 +45,6 @@ stop_words = ["a", "ali", "april", "avgust", "b", "bi", "bil", "bila", "bile", "
 
 def stop_word_check(word):
     word = word.lower()
-    if word == "dober":
-        a = 0
     split_word = list(word)
     for el in split_word:
         if el in list(string.punctuation) or el == "»" or el == "«":
@@ -67,7 +65,7 @@ def read_homonyms_file(filename):
     return homonyms
 
 
-def extract_sentences_from_corpus(directory, homonyms):
+def extract_sentences_from_corpus(directory, homonyms, c1, c2):
     homonyms_sentences = {}
     # TEMP
     i = 0
@@ -79,12 +77,13 @@ def extract_sentences_from_corpus(directory, homonyms):
         # end TEMP
         print('parsing file ', filename)
         f = os.path.join(directory, filename)
-        homonyms_sentences = extract_homonym_sentences(f, homonyms, homonyms_sentences)
+        homonyms_sentences, c1, c2 = extract_homonym_sentences(f, homonyms, homonyms_sentences, c1, c2)
         a = 0
+    print("counts: ", c1, c2)
     return homonyms_sentences
 
 
-def extract_homonym_sentences(filename, homonyms, homonym_sentences):
+def extract_homonym_sentences(filename, homonyms, homonym_sentences, count, count2):
     tree = ET.parse(filename)
     root = tree.getroot()
     for sentence_xml_element in root.iter('{http://www.tei-c.org/ns/1.0}s'):
@@ -99,10 +98,13 @@ def extract_homonym_sentences(filename, homonyms, homonym_sentences):
                 continue
             # check if word is a stop word or number:
             current_word = xml_element.text
+            count2 += 1
             if not stop_word_check(current_word):
+                count += 1
                 continue
             if "lemma" in xml_element.attrib:
                 if not stop_word_check(xml_element.attrib["lemma"]):
+                    count += 1
                     continue
             # check if current word has a lemma (is of type word)
             if xml_element.tag == '{http://www.tei-c.org/ns/1.0}w':
@@ -128,7 +130,7 @@ def extract_homonym_sentences(filename, homonyms, homonym_sentences):
         # if in this sentence we have a homonym lemma, add it to our list
         if contains_homonym_lemma:
             homonym_sentences[lemma].append(sentence_entry)
-    return homonym_sentences
+    return homonym_sentences, count, count2
 
 
 def construct_output_temp(homonyms_sentences, json_filename, word_limit):
@@ -184,5 +186,7 @@ if __name__ == '__main__':
     # TEMP parameter to limit how many
     word_limit = 10000000
     homonym = read_homonyms_file(homonyms_filename)
-    homonyms_sentences = extract_sentences_from_corpus(gigafida_dirname, homonym)
+    c1 = 0
+    c2 = 0
+    homonyms_sentences = extract_sentences_from_corpus(gigafida_dirname, homonym, c1, c2)
     construct_output_temp(homonyms_sentences, corpus_filename, word_limit)
