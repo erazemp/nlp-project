@@ -48,18 +48,24 @@ def save_part_of_data_for_evaluation(pairs, json_filename, num_of_each_instance)
         outfile.write(json_str)
 
 
-def generate_context(data, model):
-    for i, entry in enumerate(data):
-        sentence2_index = i * 2 + 1
+def generate_context(data, model, target_word, length):
+    processed_data = []
+    index = 0
+    for entry in data:
+        if entry["word"] != target_word:
+            continue
+        sentence2_index = index * 2 + 1
         tokenized1 = word_tokenize(entry["sentence1"].lower())
         vector1 = model.infer_vector(tokenized1)
-        similar = model.docvecs.most_similar(positive=[vector1])
+        similar = model.docvecs.most_similar(positive=[vector1], topn=length)
         for sim in similar:
             if sim[0] == sentence2_index:
                 score = sim[1]
-                if score > 0.3:
+                if score > 0.45:
                     entry["same_context"] = True
-    return data
+        processed_data.append(entry)
+        index = index + 1
+    return processed_data
 
 
 if __name__ == '__main__':
@@ -70,13 +76,14 @@ if __name__ == '__main__':
     # Tokenization of each document
     final_result = []
     for word in sentences:
+        print('processing word', word)
         se = sentences[word]
         tokenized_sent = []
         for s in se:
             tokenized_sent.append(word_tokenize(s.lower()))
         tagged_data = [TaggedDocument(d, [i]) for i, d in enumerate(tokenized_sent)]
         model = Doc2Vec(tagged_data, vector_size=100, window=2, min_count=1, epochs=100)
-        result = generate_context(data, model)
-        final_result.append(result)
+        result = generate_context(data, model, word, len(se))
+        final_result.extend(result)
     save_json_file(final_result, results_file)
     save_part_of_data_for_evaluation(final_result, results_part_file, 50)
