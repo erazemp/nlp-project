@@ -81,15 +81,11 @@ def serialize_sets(obj):
     return obj
 
 
-def convert_homonym_json(homonym_list, filename, filename_obj):
+def convert_homonym_json(homonym_list, filename):
     json_str = json.dumps([homonym_list[i].__dict__ for i in homonym_list], default=serialize_sets, indent=2, ensure_ascii=False)
 
-    with open(filename_obj, "w", encoding='utf-8') as outfile:
-        outfile.write(json_str)
-
     with open(filename, "w", encoding='utf-8') as outfile:
-        for homoyn in homonym_list.values():
-            outfile.write(homoyn.homonym + '\n')
+        outfile.write(json_str)
 
 
 class HomonymEntry:
@@ -106,4 +102,4 @@ class HomonymEntry:
 
 if __name__ == '__main__':
     homonym_list = extract_homonyms('../../../data/slownet/slownet-2015-05-07.xml')
-    convert_homonym_json(homonym_list, 'homonyms_list.txt', 'homonyms_obj_list.json')
+    convert_homonym_json(homonym_list, 'homonyms_obj_list.json')
