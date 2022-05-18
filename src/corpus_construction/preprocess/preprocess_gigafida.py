@@ -58,7 +58,7 @@ def stop_word_check(word):
 
 def read_homonyms_file(filename):
     homonyms = []
-    with open(filename) as file:
+    with open(filename, 'r', encoding='utf-8') as file:
         lines = file.readlines()
         for line in lines:
             homonyms.append(line.rstrip())

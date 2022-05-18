@@ -59,7 +59,7 @@ def process_sskj(lines):
 
 
 def save_to_json_file(filename, entries):
-    with open(filename, 'w') as file:
+    with open(filename, 'w', encoding='utf-8') as file:
         json.dump(entries, file)
 
 
