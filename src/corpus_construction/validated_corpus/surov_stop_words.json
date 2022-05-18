@@ -151,7 +151,7 @@
     "start2": 7,
     "lemma_word_index2": 1,
     "end2": 12,
-    "same_context":false
+    "same_context": false
   },
   {
     "word": "surov",
@@ -375,7 +375,7 @@
     "start2": 78,
     "lemma_word_index2": 14,
     "end2": 83,
-    "same_context":true
+    "same_context": true
   },
   {
     "word": "surov",
@@ -417,7 +417,7 @@
     "start2": 0,
     "lemma_word_index2": 0,
     "end2": 5,
-    "same_context":true
+    "same_context": true
   },
   {
     "word": "surov",

@@ -1,8 +1,8 @@
 import json
 
 if __name__ == '__main__':
-    filename = "surov.json"
-    filename_stop_words = "surov_stop_words.json"
+    filename = "../validated_corpus/list.json"
+    filename_stop_words = "../validated_corpus/list_stop_words.json"
 
     with open(filename, 'r', encoding='utf-8') as file:
         data = json.load(file)
@@ -14,7 +14,6 @@ if __name__ == '__main__':
 
     for i, entry in enumerate(data):
         entry["same_context"] = data_stop_words[i]["same_context"]
-        print(data_stop_words[i]["same_context"])
         data[i] = entry
 
     with open(filename, "w", encoding='utf-8') as outfile:

@@ -191,5 +191,5 @@ if __name__ == '__main__':
     homonym = read_homonyms_file(homonyms_filename)
     c1 = 0
     c2 = 0
-    homonyms_sentences = extract_sentences_from_corpus(gigafida_dirname, homonym, c1, c2, stop_word_check=False)
+    homonyms_sentences = extract_sentences_from_corpus(gigafida_dirname, homonym, c1, c2, stop_word_check=True)
     construct_output_temp(homonyms_sentences, corpus_filename, word_limit)
