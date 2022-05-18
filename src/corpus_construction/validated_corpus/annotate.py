@@ -35,5 +35,5 @@ def annotate(filename):
 
 
 if __name__ == '__main__':
-    homonyms_file = "./prst.json"
+    homonyms_file = "prst_stop_words.json"
     annotate(homonyms_file)

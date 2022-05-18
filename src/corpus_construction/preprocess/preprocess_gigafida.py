@@ -70,15 +70,12 @@ def extract_sentences_from_corpus(directory, homonyms, c1, c2, stop_word_check=T
     if not stop_word_check:
         stop_words = []
 
-    print(stop_words)
-
     homonyms_sentences = {}
     # TEMP
     i = 0
     for filename in os.listdir(directory):
         # TEMP for quick assessment
         i = i + 1
-        if i > 20000:
             break
         # end TEMP
         print('parsing file ', filename)
