@@ -11,8 +11,12 @@ def annotate(filename):
         word = entry["word"]
         sentence1 = entry["sentence1"]
         sentence2 = entry["sentence2"]
-        print(f'sentence1: {sentence1}')
-        print(f'sentence2: {sentence2}')
+        start1 = entry["start1"]
+        end1 = entry["end1"]
+        start2 = entry["start2"]
+        end2 = entry["end2"]
+        print(f'sentence1: {sentence1[:start1]}{Fore.RED + sentence1[start1:end1] + Style.RESET_ALL}{sentence1[end1:]}')
+        print(f'sentence2: {sentence2[:start2]}{Fore.RED + sentence2[start2:end2] + Style.RESET_ALL}{sentence2[end2:]}')
         input_same = input(f'Does the word "{Fore.RED + word + Style.RESET_ALL}" have the same meaning in both sentences? (Y/N, default N)\n')
         if input_same == "Y" or input_same == "y":
             entry["same_context"] = True
