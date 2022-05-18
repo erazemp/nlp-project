@@ -1,4 +1,5 @@
 import json
+from colorama import Fore, Style
 
 
 def annotate(filename):
@@ -12,7 +13,7 @@ def annotate(filename):
         sentence2 = entry["sentence2"]
         print(f'sentence1: {sentence1}')
         print(f'sentence2: {sentence2}')
-        input_same = input(f'Does the word "{word}" have the same meaning in both sentences? (Y/N, default N)\n')
+        input_same = input(f'Does the word "{Fore.RED + word + Style.RESET_ALL}" have the same meaning in both sentences? (Y/N, default N)\n')
         if input_same == "Y" or input_same == "y":
             entry["same_context"] = True
 
