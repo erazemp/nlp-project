@@ -1,9 +1,74 @@
+import pandas as pd
+import torch
+import json
 from scipy.spatial.distance import cosine
 from transformers import BertTokenizer, BertModel
-import pandas as pd
-import numpy as np
-import nltk
-import torch
+from evaluate import perform_evaluation
+
+
+def read_json_files_and_combine_them(filenames, base_path):
+    combined = []
+    for filename in filenames:
+        path = base_path + filename + '.json'
+        with open(path, 'r', encoding='utf-8') as file:
+            data = json.load(file)
+            combined.extend(data)
+    return combined
+
+
+def save_json_file(pairs, json_filename):
+    print('Saving to JSON file')
+    json_str = json.dumps([p for p in pairs], indent=2, ensure_ascii=False)
+    # save to JSON file
+    with open(json_filename, "w", encoding='utf-8') as outfile:
+        outfile.write(json_str)
+
+
+def construct_bert(model_path, pairs):
+    # Loading the pre-trained BERT model
+    ###################################
+    # Embeddings will be derived from
+    # the outputs of this model
+    # EMBEDDIA/crosloengual-bert
+    # bert-base-multilingual-uncased
+    model = BertModel.from_pretrained(model_path, output_hidden_states=True, )
+
+    # Setting up the tokenizer
+    ###################################
+    # This is the same tokenizer that
+    # was used in the model to generate
+    # embeddings to ensure consistency
+    tokenizer = BertTokenizer.from_pretrained(model_path)
+
+    cos_distances = []
+
+    for pair in pairs:
+        word = pair["word"]
+        sentence1 = pair["lemma_sentence1"]
+        sentence2 = pair["lemma_sentence2"]
+        texts = [sentence1, sentence2]
+
+        # Getting embeddings for the target
+        # word in all given contexts
+        target_word_embeddings = []
+
+        for text in texts:
+            tokenized_text, tokens_tensor, segments_tensors = bert_text_preparation(text, tokenizer)
+            list_token_embeddings = get_bert_embeddings(tokens_tensor, segments_tensors, model)
+
+            # Find the position of the word in list of tokens
+            word_index = tokenized_text.index(word)
+            # Get the embedding for bank
+            word_embedding = list_token_embeddings[word_index]
+
+            target_word_embeddings.append(word_embedding)
+
+        distances_df = calculate_cosine_similarity(texts, target_word_embeddings)
+        # print(distances_df[distances_df.text1 == sentence1].to_string())
+        print(distances_df[distances_df.text1 == sentence1].to_numpy()[1][2])
+        cos_distances.append(distances_df[distances_df.text1 == sentence1].to_numpy()[1][2])
+
+    return cos_distances
 
 
 def bert_text_preparation(text, tokenizer):
@@ -29,9 +94,7 @@ def bert_text_preparation(text, tokenizer):
 
     """
     marked_text = "[CLS] " + text + " [SEP]"
-    print(marked_text)
     tokenized_text = tokenizer.tokenize(marked_text)
-    print(tokenized_text)
     indexed_tokens = tokenizer.convert_tokens_to_ids(tokenized_text)
     segments_ids = [1] * len(indexed_tokens)
 
@@ -94,51 +157,27 @@ def calculate_cosine_similarity(texts, target_word_embeddings):
     return distances_df
 
 
+def fill_corpus(corpus_entries, cos_distances, cosine_distance_threshold):
+    for i, entry in enumerate(corpus_entries):
+        if cos_distances[i] > cosine_distance_threshold:
+            entry["same_context"] = True
+
+        corpus_entries[i] = entry
+    return corpus_entries
+
+
 if __name__ == '__main__':
+    # homonyms = ['klop', 'list', 'postaviti', 'prst', 'surov', 'tema', 'tip']
+    homonyms = ['list']
+    validated_corpus_location = '../../validated_corpus/'
+    results_file = 'bert_corpus.json'
+    part_results_file = 'bert_corpus_part.json'
     cosine_distance_threshold = 0.7
+    model_path = 'EMBEDDIA/crosloengual-bert'
+    # model_path = 'bert-base-multilingual-uncased'
 
-    # Loading the pre-trained BERT model
-    ###################################
-    # Embeddings will be derived from
-    # the outputs of this model
-    # EMBEDDIA/crosloengual-bert
-    # bert-base-multilingual-uncased
-    model = BertModel.from_pretrained('EMBEDDIA/crosloengual-bert', output_hidden_states=True, )
-
-    # Setting up the tokenizer
-    ###################################
-    # This is the same tokenizer that
-    # was used in the model to generate
-    # embeddings to ensure consistency
-    tokenizer = BertTokenizer.from_pretrained('EMBEDDIA/crosloengual-bert')
-
-    # Text corpus
-    ##############
-    # These sentences show the different
-    # forms of the word 'bank' to show the
-    # value of contextualized embeddings
-
-    texts = ["Ljubljana začeti izhajati ljubljanski časnik slovenski uraden list",
-             "izpiten pola pakiran poseben varnosten vrečka izvod skupaj pripadajoč število ocenjevalen obrazec koncepten list",
-             "mraz neprijeten vreme hitro zviti svoj cveten list",
-             "šopek tulipan oviti zelen list",
-             "ugleden evropski list objavljen komentar demokracija kateri beseda",
-             "Vida Čadonič Špelič dolenjski list ustanavljanje nov KS Dvor"]
-
-    # Getting embeddings for the target
-    # word in all given contexts
-    target_word_embeddings = []
-
-    for text in texts:
-        tokenized_text, tokens_tensor, segments_tensors = bert_text_preparation(text, tokenizer)
-        list_token_embeddings = get_bert_embeddings(tokens_tensor, segments_tensors, model)
-
-        # Find the position 'bank' in list of tokens
-        word_index = tokenized_text.index('list')
-        # Get the embedding for bank
-        word_embedding = list_token_embeddings[word_index]
-
-        target_word_embeddings.append(word_embedding)
-
-    distances_df = calculate_cosine_similarity(texts, target_word_embeddings)
-    print(distances_df[distances_df.text1 == 'šopek tulipan oviti zelen list'].to_string())
+    corpus_entries = read_json_files_and_combine_them(homonyms, validated_corpus_location)
+    cos_distances = construct_bert(model_path, corpus_entries)
+    corpus_entries = fill_corpus(corpus_entries, cos_distances, cosine_distance_threshold)
+    save_json_file(corpus_entries, results_file)
+    perform_evaluation(False, validated_corpus_location, corpus_entries, homonyms)
