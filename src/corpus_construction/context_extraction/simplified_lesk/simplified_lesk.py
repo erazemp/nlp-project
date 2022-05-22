@@ -81,7 +81,7 @@ def determine_context_pairs(pairs, sskj):
 
 
 if __name__ == '__main__':
-    homonyms = ['klop', 'list', 'postaviti', 'prst', 'surov', 'tema', 'tip', 'vila']
+    homonyms = ['klop', 'list', 'postaviti', 'prst', 'surov', 'tema', 'tip']
     validated_corpus_location = '../../validated_corpus/'
     sskj_filepath = '../../preprocess/preprocessed_sskj.json'
     # data_filepath = '../../preprocess/preprocessed_data.json'

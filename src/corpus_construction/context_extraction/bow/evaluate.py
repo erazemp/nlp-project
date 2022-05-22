@@ -44,15 +44,12 @@ def perform_evaluation(include_stopwords, path_to_validated_corpus, results, hom
     print('Total evaluation:')
     print('TP:', total_tp, 'TN', total_tn, 'FP:', total_fp, 'FN:', total_fn)
     print('----------------------------------------')
-    print('Total recall, precision, F1 Score:')
-    print(total_tp / (total_tp + total_fn), total_tp / (total_tp + total_fp), 2 * total_tp / (2 * total_tp + total_fp + total_fn))
+    print('Total recall, precision, F1 Score, Accuracy')
+    print(total_tp / (total_tp + total_fn), total_tp / (total_tp + total_fp), 2 * total_tp / (2 * total_tp + total_fp + total_fn),
+          (total_tp + total_tn) / (total_tp + total_tn + total_fp + total_fn))
 
 
 def find_matching_record(result, predicted):
     for data in predicted:
         if result["sentence1"] == data["sentence1"] and result["sentence2"] == data["sentence2"]:
             return data
-
-
-
-

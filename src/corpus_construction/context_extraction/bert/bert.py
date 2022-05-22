@@ -171,7 +171,7 @@ if __name__ == '__main__':
     validated_corpus_location = '../../validated_corpus/'
     results_file = 'bert_corpus.json'
     part_results_file = 'bert_corpus_part.json'
-    cosine_distance_threshold = 0.7
+    cosine_distance_threshold = 0.4
     model_path = 'EMBEDDIA/crosloengual-bert'
     # model_path = 'bert-base-multilingual-uncased'
 

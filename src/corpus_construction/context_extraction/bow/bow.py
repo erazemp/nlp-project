@@ -125,7 +125,7 @@ class BowBuilder:
 
 
 if __name__ == '__main__':
-    homonyms = ['klop', 'list', 'postaviti', 'prst', 'surov', 'tema', 'tip', 'vila']
+    homonyms = ['klop', 'list', 'postaviti', 'prst', 'surov', 'tema', 'tip']
     validated_corpus_location = '../../validated_corpus/'
     # data_file = '../../preprocess/preprocessed_data.json'
     results_file = 'bow_corpus.json'

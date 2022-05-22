@@ -180,7 +180,7 @@ if __name__ == '__main__':
     corpus_filename = 'preprocessed_data.json'
     # TEMP parameter to limit how many
     word_limit = 10000000
-    homonyms = ['klop', 'list', 'postaviti', 'prst', 'surov', 'tema', 'tip', 'vila']
+    homonyms = ['klop', 'list', 'postaviti', 'prst', 'surov', 'tema', 'tip']
     c1 = 0
     c2 = 0
     homonyms_sentences = extract_sentences_from_corpus(gigafida_dirname, homonyms, c1, c2, stop_word_check=True)
