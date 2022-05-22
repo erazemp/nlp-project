@@ -159,16 +159,15 @@ def calculate_cosine_similarity(texts, target_word_embeddings):
 
 def fill_corpus(corpus_entries, cos_distances, cosine_distance_threshold):
     for i, entry in enumerate(corpus_entries):
-        if cos_distances[i] > cosine_distance_threshold:
-            entry["same_context"] = True
-
+        # only set same context to true, if the distance is hiher than threshold
+        entry["same_context"] = cos_distances[i] > cosine_distance_threshold
         corpus_entries[i] = entry
     return corpus_entries
 
 
 if __name__ == '__main__':
-    # homonyms = ['klop', 'list', 'postaviti', 'prst', 'surov', 'tema', 'tip']
-    homonyms = ['list']
+    homonyms = ['klop', 'list', 'postaviti', 'prst', 'surov', 'tema', 'tip']
+    # homonyms = ['list']
     validated_corpus_location = '../../validated_corpus/'
     results_file = 'bert_corpus.json'
     part_results_file = 'bert_corpus_part.json'
