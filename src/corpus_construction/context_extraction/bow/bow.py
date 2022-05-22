@@ -3,6 +3,8 @@ from string import digits
 import json
 import scipy.spatial
 
+from evaluate import perform_evaluation
+
 
 # UTILS methods
 def read_json_file(filename):
@@ -10,6 +12,16 @@ def read_json_file(filename):
     with open(filename, 'r', encoding='utf-8') as file:
         data = json.load(file)
         return data
+
+
+def read_json_files_and_combine_them(filenames, base_path):
+    combined = []
+    for filename in filenames:
+        path = base_path + filename + '.json'
+        with open(path, 'r', encoding='utf-8') as file:
+            data = json.load(file)
+            combined.extend(data)
+    return combined
 
 
 def save_json_file(pairs, json_filename):
@@ -113,13 +125,17 @@ class BowBuilder:
 
 
 if __name__ == '__main__':
-    data_file = '../../preprocess/preprocessed_data.json'
+    synonyms = ['klop', 'list', 'postaviti', 'prst', 'surov', 'tema', 'tip', 'vila']
+    validated_corpus_location = '../../validated_corpus/'
+    # data_file = '../../preprocess/preprocessed_data.json'
     results_file = 'bow_corpus.json'
     part_results_file = 'bow_corpus_part.json'
     window_size = 2
     cosine_distance_threshold = 0.7
-    corpus_entries = read_json_file(data_file)
+    # corpus_entries = read_json_file(data_file)
+    corpus_entries = read_json_files_and_combine_them(synonyms, validated_corpus_location)
     bow = construct_bow(corpus_entries, window_size)
     updated_pairs = fill_vectors(bow, corpus_entries, cosine_distance_threshold)
     save_json_file(updated_pairs, results_file)
-    save_part_of_data_for_evaluation(updated_pairs, part_results_file, 50)
+    # save_part_of_data_for_evaluation(updated_pairs, part_results_file, 50)
+    perform_evaluation(False, validated_corpus_location, updated_pairs, synonyms)

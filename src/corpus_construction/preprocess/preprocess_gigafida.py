@@ -74,8 +74,9 @@ def extract_sentences_from_corpus(directory, homonyms, c1, c2, stop_word_check=T
     # TEMP
     i = 0
     for filename in os.listdir(directory):
-        # TEMP for quick assessment
+        # only process 10000 corpus files
         i = i + 1
+        if i > 10000:
             break
         # end TEMP
         print('parsing file ', filename)

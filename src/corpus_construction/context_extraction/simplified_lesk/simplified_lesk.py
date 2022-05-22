@@ -1,5 +1,6 @@
 import json
 
+from evaluate import perform_evaluation
 
 # UTILS methods
 def read_json_file(filename):
@@ -7,6 +8,16 @@ def read_json_file(filename):
     with open(filename, 'r', encoding='utf-8') as file:
         data = json.load(file)
         return data
+
+
+def read_json_files_and_combine_them(filenames, base_path):
+    combined = []
+    for filename in filenames:
+        path = base_path + filename + '.json'
+        with open(path, 'r', encoding='utf-8') as file:
+            data = json.load(file)
+            combined.extend(data)
+    return combined
 
 
 def save_json_file(pairs, json_filename):
@@ -69,12 +80,16 @@ def determine_context_pairs(pairs, sskj):
 
 
 if __name__ == '__main__':
+    synonyms = ['klop', 'list', 'postaviti', 'prst', 'surov', 'tema', 'tip', 'vila']
+    validated_corpus_location = '../../validated_corpus/'
     sskj_filepath = '../../preprocess/preprocessed_sskj.json'
-    data_filepath = '../../preprocess/preprocessed_data.json'
+    # data_filepath = '../../preprocess/preprocessed_data.json'
     results_file = 'simplified_lesk_corpus.json'
-    results_part_file = 'simplified_lesk_corpus_part.json'
+    # results_part_file = 'simplified_lesk_corpus_part.json'
     sskj_data = read_json_file(sskj_filepath)
-    corpus_data = read_json_file(data_filepath)
+    # corpus_data = read_json_file(data_filepath)
+    corpus_data = read_json_files_and_combine_them(synonyms, validated_corpus_location)
     updated_pairs = determine_context_pairs(corpus_data, sskj_data)
     save_json_file(updated_pairs, results_file)
-    save_part_of_data_for_evaluation(updated_pairs, results_part_file, 50)
+    perform_evaluation(False, validated_corpus_location, updated_pairs, synonyms)
+    # save_part_of_data_for_evaluation(updated_pairs, results_part_file, 50)
