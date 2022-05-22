@@ -1,6 +1,6 @@
 import json
 
-from evaluate import perform_evaluation
+from evaluate_lesk import perform_evaluation
 
 # UTILS methods
 def read_json_file(filename):
@@ -24,28 +24,6 @@ def save_json_file(pairs, json_filename):
     print('Saving to JSON file')
     json_str = json.dumps([p for p in pairs], indent=2, ensure_ascii=False)
     # save to JSON file
-    with open(json_filename, "w", encoding='utf-8') as outfile:
-        outfile.write(json_str)
-
-
-def save_part_of_data_for_evaluation(pairs, json_filename, num_of_each_instance):
-    # save part of corpus into another json file for manual annotation / validation
-    print('Saving part of data')
-    temp = {}
-    part_corpus = []
-    for pair in pairs:
-        target_word = pair["word"]
-        if target_word not in temp:
-            temp[target_word] = [0, 0]
-        if temp[target_word][0] == num_of_each_instance and temp[target_word][1] == num_of_each_instance:
-            continue
-        if pair["same_context"] and temp[target_word][0] < num_of_each_instance:
-            temp[target_word][0] = temp[target_word][0] + 1
-            part_corpus.append(pair)
-        elif not pair["same_context"] and temp[target_word][1] < num_of_each_instance:
-            temp[target_word][1] = temp[target_word][1] + 1
-            part_corpus.append(pair)
-    json_str = json.dumps([p for p in part_corpus], indent=2, ensure_ascii=False)
     with open(json_filename, "w", encoding='utf-8') as outfile:
         outfile.write(json_str)
 
@@ -77,6 +55,8 @@ def determine_context_pairs(pairs, sskj):
                 s2_context = count_occurrences(sentence2, sskj_entry)
                 if s1_context == s2_context:
                     pair["same_context"] = True
+                else:
+                    pair["same_context"] = False
     return pairs
 
 
@@ -84,13 +64,15 @@ if __name__ == '__main__':
     homonyms = ['klop', 'list', 'postaviti', 'prst', 'surov', 'tema', 'tip']
     validated_corpus_location = '../../validated_corpus/'
     sskj_filepath = '../../preprocess/preprocessed_sskj.json'
-    # data_filepath = '../../preprocess/preprocessed_data.json'
+    data_filepath = '../../preprocess/preprocessed_data.json'
     results_file = 'simplified_lesk_corpus.json'
-    # results_part_file = 'simplified_lesk_corpus_part.json'
     sskj_data = read_json_file(sskj_filepath)
-    # corpus_data = read_json_file(data_filepath)
-    corpus_data = read_json_files_and_combine_them(homonyms, validated_corpus_location)
+    # construct and save main (Gigafida) corpus
+    corpus_data = read_json_file(data_filepath)
     updated_pairs = determine_context_pairs(corpus_data, sskj_data)
     save_json_file(updated_pairs, results_file)
-    perform_evaluation(False, validated_corpus_location, updated_pairs, homonyms)
-    # save_part_of_data_for_evaluation(updated_pairs, results_part_file, 50)
+    # construct and evaluate from test corpus
+    print('Starting evaluation step')
+    corpus_data_eval = read_json_files_and_combine_them(homonyms, validated_corpus_location)
+    updated_pairs_eval = determine_context_pairs(corpus_data_eval, sskj_data)
+    perform_evaluation(False, validated_corpus_location, updated_pairs_eval, homonyms)

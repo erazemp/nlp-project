@@ -3,7 +3,7 @@ import torch
 import json
 from scipy.spatial.distance import cosine
 from transformers import BertTokenizer, BertModel
-from evaluate import perform_evaluation
+from evaluate_bert import perform_evaluation
 
 
 def read_json_files_and_combine_them(filenames, base_path):

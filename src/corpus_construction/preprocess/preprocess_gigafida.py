@@ -62,18 +62,14 @@ def extract_sentences_from_corpus(directory, homonyms, c1, c2, stop_word_check=T
         stop_words = []
 
     homonyms_sentences = {}
-    # TEMP
     i = 0
     for filename in os.listdir(directory):
         # only process 10000 corpus files
         i = i + 1
-        if i > 10000:
-            break
-        # end TEMP
-        print('parsing file ', filename)
+        if i % 1000 == 0:
+            print('parsing file number', i)
         f = os.path.join(directory, filename)
         homonyms_sentences, c1, c2 = extract_homonym_sentences(f, homonyms, homonyms_sentences, c1, c2)
-        a = 0
     print("counts: ", c1, c2)
     return homonyms_sentences
 

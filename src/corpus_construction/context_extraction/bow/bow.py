@@ -1,9 +1,8 @@
-import string
-from string import digits
 import json
+
 import scipy.spatial
 
-from evaluate import perform_evaluation
+from evaluate_bow import perform_evaluation
 
 
 # UTILS methods
@@ -32,28 +31,6 @@ def save_json_file(pairs, json_filename):
         outfile.write(json_str)
 
 
-def save_part_of_data_for_evaluation(pairs, json_filename, num_of_each_instance):
-    # save part of corpus into another json file for manual annotation / validation
-    print('Saving part of data')
-    temp = {}
-    part_corpus = []
-    for pair in pairs:
-        target_word = pair["word"]
-        if target_word not in temp:
-            temp[target_word] = [0, 0]
-        if temp[target_word][0] == num_of_each_instance and temp[target_word][1] == num_of_each_instance:
-            continue
-        if pair["same_context"] and temp[target_word][0] < num_of_each_instance:
-            temp[target_word][0] = temp[target_word][0] + 1
-            part_corpus.append(pair)
-        elif not pair["same_context"] and temp[target_word][1] < num_of_each_instance:
-            temp[target_word][1] = temp[target_word][1] + 1
-            part_corpus.append(pair)
-    json_str = json.dumps([p for p in part_corpus], indent=2, ensure_ascii=False)
-    with open(json_filename, "w", encoding='utf-8') as outfile:
-        outfile.write(json_str)
-
-
 def construct_bow(pairs, window):
     bow_builder = BowBuilder(window)
     # iterate through all the sentences to get context vectors
@@ -74,6 +51,8 @@ def fill_vectors(bow_builder, pairs, cosine_distance_threshold):
         distance = calculate_cosine_similarity(context_vector1, context_vector2)
         if distance > cosine_distance_threshold:
             pair["same_context"] = True
+        else:
+            pair["same_context"] = False
     return pairs
 
 
@@ -127,15 +106,19 @@ class BowBuilder:
 if __name__ == '__main__':
     homonyms = ['klop', 'list', 'postaviti', 'prst', 'surov', 'tema', 'tip']
     validated_corpus_location = '../../validated_corpus/'
-    # data_file = '../../preprocess/preprocessed_data.json'
+    data_file = '../../preprocess/preprocessed_data.json'
     results_file = 'bow_corpus.json'
     part_results_file = 'bow_corpus_part.json'
     window_size = 2
-    cosine_distance_threshold = 0.7
-    # corpus_entries = read_json_file(data_file)
-    corpus_entries = read_json_files_and_combine_them(homonyms, validated_corpus_location)
+    cosine_distance_threshold = 0.6
+    corpus_entries = read_json_file(data_file)
+    # construct and save main (Gigafida) corpus
     bow = construct_bow(corpus_entries, window_size)
     updated_pairs = fill_vectors(bow, corpus_entries, cosine_distance_threshold)
     save_json_file(updated_pairs, results_file)
-    # save_part_of_data_for_evaluation(updated_pairs, part_results_file, 50)
-    perform_evaluation(False, validated_corpus_location, updated_pairs, homonyms)
+    # construct and evaluate from test corpus
+    print('Starting evaluation step')
+    corpus_entries_eval = read_json_files_and_combine_them(homonyms, validated_corpus_location)
+    bow_eval = construct_bow(corpus_entries_eval, window_size)
+    updated_pairs_eval = fill_vectors(bow_eval, corpus_entries_eval, cosine_distance_threshold)
+    perform_evaluation(False, validated_corpus_location, updated_pairs_eval, homonyms)
