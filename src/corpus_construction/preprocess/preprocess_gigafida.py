@@ -56,15 +56,6 @@ def stop_word_check(word):
     return True
 
 
-def read_homonyms_file(filename):
-    homonyms = []
-    with open(filename, 'r', encoding='utf-8') as file:
-        lines = file.readlines()
-        for line in lines:
-            homonyms.append(line.rstrip())
-    return homonyms
-
-
 def extract_sentences_from_corpus(directory, homonyms, c1, c2, stop_word_check=True):
     global stop_words
     if not stop_word_check:
@@ -189,8 +180,8 @@ if __name__ == '__main__':
     corpus_filename = 'preprocessed_data.json'
     # TEMP parameter to limit how many
     word_limit = 10000000
-    homonym = read_homonyms_file(homonyms_filename)
+    homonyms = ['klop', 'list', 'postaviti', 'prst', 'surov', 'tema', 'tip', 'vila']
     c1 = 0
     c2 = 0
-    homonyms_sentences = extract_sentences_from_corpus(gigafida_dirname, homonym, c1, c2, stop_word_check=True)
+    homonyms_sentences = extract_sentences_from_corpus(gigafida_dirname, homonyms, c1, c2, stop_word_check=True)
     construct_output_temp(homonyms_sentences, corpus_filename, word_limit)

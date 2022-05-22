@@ -125,7 +125,7 @@ class BowBuilder:
 
 
 if __name__ == '__main__':
-    synonyms = ['klop', 'list', 'postaviti', 'prst', 'surov', 'tema', 'tip', 'vila']
+    homonyms = ['klop', 'list', 'postaviti', 'prst', 'surov', 'tema', 'tip', 'vila']
     validated_corpus_location = '../../validated_corpus/'
     # data_file = '../../preprocess/preprocessed_data.json'
     results_file = 'bow_corpus.json'
@@ -133,9 +133,9 @@ if __name__ == '__main__':
     window_size = 2
     cosine_distance_threshold = 0.7
     # corpus_entries = read_json_file(data_file)
-    corpus_entries = read_json_files_and_combine_them(synonyms, validated_corpus_location)
+    corpus_entries = read_json_files_and_combine_them(homonyms, validated_corpus_location)
     bow = construct_bow(corpus_entries, window_size)
     updated_pairs = fill_vectors(bow, corpus_entries, cosine_distance_threshold)
     save_json_file(updated_pairs, results_file)
     # save_part_of_data_for_evaluation(updated_pairs, part_results_file, 50)
-    perform_evaluation(False, validated_corpus_location, updated_pairs, synonyms)
+    perform_evaluation(False, validated_corpus_location, updated_pairs, homonyms)

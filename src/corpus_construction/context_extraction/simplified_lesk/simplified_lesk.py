@@ -80,7 +80,7 @@ def determine_context_pairs(pairs, sskj):
 
 
 if __name__ == '__main__':
-    synonyms = ['klop', 'list', 'postaviti', 'prst', 'surov', 'tema', 'tip', 'vila']
+    homonyms = ['klop', 'list', 'postaviti', 'prst', 'surov', 'tema', 'tip', 'vila']
     validated_corpus_location = '../../validated_corpus/'
     sskj_filepath = '../../preprocess/preprocessed_sskj.json'
     # data_filepath = '../../preprocess/preprocessed_data.json'
@@ -88,8 +88,8 @@ if __name__ == '__main__':
     # results_part_file = 'simplified_lesk_corpus_part.json'
     sskj_data = read_json_file(sskj_filepath)
     # corpus_data = read_json_file(data_filepath)
-    corpus_data = read_json_files_and_combine_them(synonyms, validated_corpus_location)
+    corpus_data = read_json_files_and_combine_them(homonyms, validated_corpus_location)
     updated_pairs = determine_context_pairs(corpus_data, sskj_data)
     save_json_file(updated_pairs, results_file)
-    perform_evaluation(False, validated_corpus_location, updated_pairs, synonyms)
+    perform_evaluation(False, validated_corpus_location, updated_pairs, homonyms)
     # save_part_of_data_for_evaluation(updated_pairs, results_part_file, 50)

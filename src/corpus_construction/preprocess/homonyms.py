@@ -102,6 +102,6 @@ class HomonymEntry:
 
 if __name__ == '__main__':
     homonyms_file = "../../../data/slownet/slownet-2015-05-07.xml"
-    output_json = "homonyms_obj_list.json"
+    output_json = "homonyms.json"
     homonym_list = extract_homonyms(homonyms_file)
     convert_homonym_json(homonym_list, output_json)

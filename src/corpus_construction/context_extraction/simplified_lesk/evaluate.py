@@ -1,22 +1,22 @@
 import json
 
 
-def perform_evaluation(include_stopwords, path_to_validated_corpus, results, synonyms):
+def perform_evaluation(include_stopwords, path_to_validated_corpus, results, homonyms):
     total_tn = 0
     total_fn = 0
     total_fp = 0
     total_tp = 0
-    for synonym in synonyms:
+    for homonym in homonyms:
         tn = 0
         fn = 0
         fp = 0
         tp = 0
-        # retrieve annotated data from synonyms
+        # retrieve annotated data from homonyms
         filename = path_to_validated_corpus
         if include_stopwords:
-            filename += synonym + '_stop_words.json'
+            filename += homonym + '_stop_words.json'
         else:
-            filename += synonym + '.json'
+            filename += homonym + '.json'
         with open(filename, 'r', encoding='utf-8') as file:
             annotated_data = json.load(file)
             # find corresponding sentence that is annotated
@@ -34,7 +34,7 @@ def perform_evaluation(include_stopwords, path_to_validated_corpus, results, syn
                         fp = fp + 1
                     else:
                         tn = tn + 1
-        print('Evaluation for word', synonym)
+        print('Evaluation for word', homonym)
         print('TP:', tp, 'TN', tn, 'FP:', fp, 'FN:', fn)
         print('----------------------------------------')
         total_fp = total_fp + fp
