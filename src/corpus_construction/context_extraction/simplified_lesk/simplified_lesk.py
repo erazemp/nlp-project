@@ -54,7 +54,8 @@ def count_occurrences(sentence, dict_entry):
     count_list = []
     for entry in dict_entry:
         occurrences = 0
-        for word in sentence:
+        sentence_split = sentence.split()
+        for word in sentence_split:
             if word in entry:
                 occurrences = occurrences + 1
         count_list.append(occurrences)
