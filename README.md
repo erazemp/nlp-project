@@ -71,3 +71,9 @@ If you would like to rerun homonym extraction, you can run the main method in `h
 Each method we implemented is stored in its own subfolder in `src/context_extraction`.
 If you wish to try one of the methods, simply run the main method in the corresponding file (assuming you haven't renamed or moved any files required for running).
 Each method creates a new file with `corpus.json` ending which contains labelled data as well as prints the evaluation metrics in standard output.
+
+### Copyright
+
+<footer id="footer">
+  <p class="copyright">Absolventi &copy;<a href="<?php bloginfo('url'); ?>" title="<?php bloginfo('name'); ?>home"><?php bloginfo('name'); ?></a> <?php echo date('Y'); ?> All Rights Reserved.</p>
+</footer>
