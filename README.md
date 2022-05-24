@@ -7,7 +7,7 @@ Advisors: Slavko Žitnik
 
 Organization: University of Ljubljana, Faculty of Computer and Information Science
 
-Course: Natural Language Processing 2020/2021
+Course: Natural Language Processing 2021/2022
 
 ---
 
@@ -21,21 +21,48 @@ The Corpus will be taken from Gigafida http://eng.slovenscina.eu/korpusi/gigafid
 Folder `src` contains source code for our project.
 It is further divided into subfolders:
 
-* `corpus_construction`: contains code for constructing the corpus
-  * `context_extraction`: contains variable attempts for extracting context from sentences obtained in `preprocess` step. Each attempt will be in its own folder together with source code and final results.
-  * `preprocess`:
-    * `homonyms.py` extracts grouped homonyms from sloWNet and stores them together in a JSON file. Script requires following arguments, editable in `main` function of the script:
-      * `homonyms_file`: path to corpus .xml file
-      * `output_json`: path to output JSON file, which will be generated, containing all the homonyms
-    * `preprocess_sskj.py` transforms gloss words into a list of lemmas that are contained in the gloss. Script requires following arguments, editable in `main` function of the script:
-      * `sskj_filename`:  path to SSKJ .xml file
-      * `result_filename`: path to output JSON file, containinga list of lemma forms of words in glosses
-    * `preprocess_gigafida.py` extracts pairs of sentences with same target word from Gigafida and stores them together in a JSON file. Script returns baseline for further corpus construction to extract context from sentences script requires following arguments, editable in `main` function of the script:
-      * `gigafida_dirname`: path to corpus .xml file (that contains only .xml files)
-      * `homonyms_filename`: path to file that has homonyms listed line by line in a text file
-      * `corpus_filename`: name of the JSON file that is created at the end and contains pairs of sentences which both contain a homonym lemma
-      * `word_limit`: limits maximum number of pairs of same lemma sentences a homonym can have
+* `context_extraction`: contains variable attempts for extracting context from sentences obtained in `preprocess` step. Each attempt will be in its own folder together with source code, final results and evaluation script.
+* `preprocess`:
+  * `homonyms.py` extracts grouped homonyms from sloWNet and stores them together in a JSON file. Script requires following arguments, editable in `main` function of the script:
+    * `homonyms_file`: path to corpus .xml file
+    * `output_json`: path to output JSON file, which will be generated, containing all the homonyms
+  * `preprocess_sskj.py` transforms gloss words into a list of lemmas that are contained in the gloss. Script requires following arguments, editable in `main` function of the script:
+    * `sskj_filename`:  path to SSKJ .xml file
+    * `result_filename`: path to output JSON file, containinga list of lemma forms of words in glosses
+  * `preprocess_gigafida.py` extracts pairs of sentences with same target word from Gigafida and stores them together in a JSON file. Script returns baseline for further corpus construction to extract context from sentences script requires following arguments, editable in `main` function of the script:
+    * `gigafida_dirname`: path to corpus .xml file (that contains only .xml files)
+    * `homonyms_filename`: path to file that has homonyms listed line by line in a text file
+    * `corpus_filename`: name of the JSON file that is created at the end and contains pairs of sentences which both contain a homonym lemma
+    * `word_limit`: limits maximum number of pairs of same lemma sentences a homonym can have
+  * `anotate.py` script for assisting with manually annotating corpus
+* `validated_corpus` contains manually annotaded data for evaluation purposes
 
 ## Instructions (How to run)
- **To-do**
 
+In order to run our code, you will first need to install the requirements.
+These are stored in `requirements.txt` file in `src` subfolder.
+You can install them with the following command
+
+```
+cd src
+pip install -r requirements.txt
+```
+
+### Preprocessing phase
+
+In order to rerun the preprocessing step of extracting information from `ccGigafida` you will to first download, extract and save it in the repository root folder with name `Gigafida_corpus`.
+You can download the zip with the following command:
+
+```
+curl --remote-name-all https://www.clarin.si/repository/xmlui/bitstream/handle/11356/1035{/ccGigafidaV1_0.zip,/ccGigafida-vert.zip,/ccGigafida-text.zip}
+```
+
+If you want to rerun SSKJ preprocess, you can run the main method in `preprocess_sskj.py` file.
+
+If you would like to rerun homonym extraction, you can run the main method in `homonyms.py` file.
+
+### Context extraction phase
+
+Each method we implemented is stored in its own subfolder in `src/context_extraction`.
+If you wish to try one of the methods, simply run the main method in the corresponding file (assuming you haven't renamed or moved any files required for running).
+Each method creates a new file with `corpus.json` ending which contains labelled data as well as prints the evaluation metrics in standard output.
