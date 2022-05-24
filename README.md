@@ -13,6 +13,10 @@ Course: Natural Language Processing 2021/2022
 
 ## Description
 
+<p align="center">
+ <img src="/data/elmo_bert.jpg" alt="drawing" width="300"/>
+</p>
+ 
 The goal of the project is to detect if the context of the same word is different or the same in separate sentences in Slovenian language. 
 The Corpus is taken from Gigafida from where we extracted sentences which contain preselected words. 
 We intentionally chose words with multiple meanings (ambiguous words).
