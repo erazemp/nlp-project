@@ -14,7 +14,8 @@ Course: Natural Language Processing 2021/2022
 ## Description
 
 The goal of the project is to detect if the context of the same word is different or the same in separate sentences in Slovenian language. 
-The Corpus will be taken from Gigafida http://eng.slovenscina.eu/korpusi/gigafida or Training Corpus http://eng.slovenscina.eu/tehnologije/ucni-korpus from where we will extract sentences which contain preselected words. We will intentionally chose words with multiple meanings (ambiguous words).
+The Corpus is taken from Gigafida from where we extracted sentences which contain preselected words. 
+We intentionally chose words with multiple meanings (ambiguous words).
 
 ## Folder structure
 
