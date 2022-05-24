@@ -53,7 +53,7 @@
     "start2": 35,
     "lemma_word_index2": 8,
     "end2": 43,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "postaviti",
@@ -67,7 +67,7 @@
     "start2": 78,
     "lemma_word_index2": 17,
     "end2": 85,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "postaviti",
@@ -137,7 +137,7 @@
     "start2": 12,
     "lemma_word_index2": 3,
     "end2": 19,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "postaviti",
@@ -249,7 +249,7 @@
     "start2": 70,
     "lemma_word_index2": 10,
     "end2": 77,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "postaviti",
@@ -263,7 +263,7 @@
     "start2": 44,
     "lemma_word_index2": 8,
     "end2": 51,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "postaviti",
@@ -305,7 +305,7 @@
     "start2": 193,
     "lemma_word_index2": 25,
     "end2": 201,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "postaviti",
@@ -319,7 +319,7 @@
     "start2": 252,
     "lemma_word_index2": 35,
     "end2": 260,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "postaviti",
@@ -501,7 +501,7 @@
     "start2": 20,
     "lemma_word_index2": 4,
     "end2": 28,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "postaviti",
@@ -515,7 +515,7 @@
     "start2": 71,
     "lemma_word_index2": 13,
     "end2": 78,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "postaviti",
@@ -557,7 +557,7 @@
     "start2": 133,
     "lemma_word_index2": 23,
     "end2": 141,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "postaviti",
@@ -571,7 +571,7 @@
     "start2": 38,
     "lemma_word_index2": 9,
     "end2": 46,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "postaviti",
@@ -641,7 +641,7 @@
     "start2": 55,
     "lemma_word_index2": 11,
     "end2": 61,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "postaviti",
@@ -655,7 +655,7 @@
     "start2": 51,
     "lemma_word_index2": 9,
     "end2": 59,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "postaviti",
@@ -669,7 +669,7 @@
     "start2": 30,
     "lemma_word_index2": 5,
     "end2": 38,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "postaviti",
@@ -683,7 +683,7 @@
     "start2": 24,
     "lemma_word_index2": 5,
     "end2": 31,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "postaviti",
@@ -879,7 +879,7 @@
     "start2": 34,
     "lemma_word_index2": 8,
     "end2": 42,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "postaviti",
@@ -893,7 +893,7 @@
     "start2": 76,
     "lemma_word_index2": 12,
     "end2": 84,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "postaviti",
@@ -963,7 +963,7 @@
     "start2": 24,
     "lemma_word_index2": 4,
     "end2": 30,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "postaviti",
@@ -1257,7 +1257,7 @@
     "start2": 40,
     "lemma_word_index2": 7,
     "end2": 48,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "postaviti",
@@ -1271,7 +1271,7 @@
     "start2": 59,
     "lemma_word_index2": 11,
     "end2": 67,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "postaviti",
@@ -1313,7 +1313,7 @@
     "start2": 130,
     "lemma_word_index2": 24,
     "end2": 138,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "postaviti",
@@ -1327,7 +1327,7 @@
     "start2": 129,
     "lemma_word_index2": 19,
     "end2": 135,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "postaviti",
@@ -1341,7 +1341,7 @@
     "start2": 8,
     "lemma_word_index2": 2,
     "end2": 16,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "postaviti",
@@ -1411,7 +1411,7 @@
     "start2": 64,
     "lemma_word_index2": 14,
     "end2": 71,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "postaviti",
@@ -1509,7 +1509,7 @@
     "start2": 7,
     "lemma_word_index2": 2,
     "end2": 13,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "postaviti",
@@ -1523,7 +1523,7 @@
     "start2": 47,
     "lemma_word_index2": 7,
     "end2": 55,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "postaviti",
@@ -1551,7 +1551,7 @@
     "start2": 198,
     "lemma_word_index2": 29,
     "end2": 203,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "surov",
@@ -1607,7 +1607,7 @@
     "start2": 8,
     "lemma_word_index2": 1,
     "end2": 13,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "surov",
@@ -1649,7 +1649,7 @@
     "start2": 33,
     "lemma_word_index2": 7,
     "end2": 38,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "surov",
@@ -1957,7 +1957,7 @@
     "start2": 0,
     "lemma_word_index2": 0,
     "end2": 5,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "surov",
@@ -2069,7 +2069,7 @@
     "start2": 43,
     "lemma_word_index2": 5,
     "end2": 48,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "surov",
@@ -2139,7 +2139,7 @@
     "start2": 59,
     "lemma_word_index2": 11,
     "end2": 64,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "surov",
@@ -2153,7 +2153,7 @@
     "start2": 71,
     "lemma_word_index2": 11,
     "end2": 76,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "surov",
@@ -2237,7 +2237,7 @@
     "start2": 95,
     "lemma_word_index2": 15,
     "end2": 100,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "surov",
@@ -2251,7 +2251,7 @@
     "start2": 66,
     "lemma_word_index2": 11,
     "end2": 73,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "surov",
@@ -2307,7 +2307,7 @@
     "start2": 20,
     "lemma_word_index2": 2,
     "end2": 25,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "surov",
@@ -2321,7 +2321,7 @@
     "start2": 29,
     "lemma_word_index2": 6,
     "end2": 34,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "surov",
@@ -2363,7 +2363,7 @@
     "start2": 68,
     "lemma_word_index2": 13,
     "end2": 75,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "surov",
@@ -2391,7 +2391,7 @@
     "start2": 44,
     "lemma_word_index2": 6,
     "end2": 49,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "surov",
@@ -2475,7 +2475,7 @@
     "start2": 158,
     "lemma_word_index2": 24,
     "end2": 164,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "surov",
@@ -2517,7 +2517,7 @@
     "start2": 46,
     "lemma_word_index2": 7,
     "end2": 51,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "surov",
@@ -2699,7 +2699,7 @@
     "start2": 128,
     "lemma_word_index2": 20,
     "end2": 133,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "surov",
@@ -2741,7 +2741,7 @@
     "start2": 0,
     "lemma_word_index2": 0,
     "end2": 5,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "surov",
@@ -2797,7 +2797,7 @@
     "start2": 61,
     "lemma_word_index2": 10,
     "end2": 68,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "surov",
@@ -2825,7 +2825,7 @@
     "start2": 113,
     "lemma_word_index2": 21,
     "end2": 118,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "surov",
@@ -2839,7 +2839,7 @@
     "start2": 40,
     "lemma_word_index2": 6,
     "end2": 47,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "surov",
@@ -2881,7 +2881,7 @@
     "start2": 53,
     "lemma_word_index2": 9,
     "end2": 58,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "surov",
@@ -2923,7 +2923,7 @@
     "start2": 63,
     "lemma_word_index2": 10,
     "end2": 68,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "surov",
@@ -2937,7 +2937,7 @@
     "start2": 0,
     "lemma_word_index2": 0,
     "end2": 5,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "surov",
@@ -2993,7 +2993,7 @@
     "start2": 0,
     "lemma_word_index2": 0,
     "end2": 5,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "surov",
@@ -3021,7 +3021,7 @@
     "start2": 46,
     "lemma_word_index2": 6,
     "end2": 53,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "surov",
@@ -3035,7 +3035,7 @@
     "start2": 46,
     "lemma_word_index2": 6,
     "end2": 51,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "surov",
@@ -3147,7 +3147,7 @@
     "start2": 0,
     "lemma_word_index2": 0,
     "end2": 5,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "surov",
@@ -3161,7 +3161,7 @@
     "start2": 0,
     "lemma_word_index2": 0,
     "end2": 4,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "surov",
@@ -3175,7 +3175,7 @@
     "start2": 49,
     "lemma_word_index2": 7,
     "end2": 55,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "surov",
@@ -3259,7 +3259,7 @@
     "start2": 19,
     "lemma_word_index2": 2,
     "end2": 22,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "tema",
@@ -3371,7 +3371,7 @@
     "start2": 27,
     "lemma_word_index2": 4,
     "end2": 30,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "tema",
@@ -3385,7 +3385,7 @@
     "start2": 100,
     "lemma_word_index2": 12,
     "end2": 103,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "tema",
@@ -3497,7 +3497,7 @@
     "start2": 124,
     "lemma_word_index2": 20,
     "end2": 127,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "tema",
@@ -3511,7 +3511,7 @@
     "start2": 0,
     "lemma_word_index2": 0,
     "end2": 3,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "tema",
@@ -3525,7 +3525,7 @@
     "start2": 40,
     "lemma_word_index2": 7,
     "end2": 43,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "tema",
@@ -3679,7 +3679,7 @@
     "start2": 128,
     "lemma_word_index2": 18,
     "end2": 131,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "tema",
@@ -3693,7 +3693,7 @@
     "start2": 39,
     "lemma_word_index2": 6,
     "end2": 42,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "tema",
@@ -3707,7 +3707,7 @@
     "start2": 20,
     "lemma_word_index2": 4,
     "end2": 23,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "tema",
@@ -3749,7 +3749,7 @@
     "start2": 11,
     "lemma_word_index2": 3,
     "end2": 14,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "tema",
@@ -3763,7 +3763,7 @@
     "start2": 96,
     "lemma_word_index2": 16,
     "end2": 99,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "tema",
@@ -3777,7 +3777,7 @@
     "start2": 2,
     "lemma_word_index2": 1,
     "end2": 5,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "tema",
@@ -4141,7 +4141,7 @@
     "start2": 58,
     "lemma_word_index2": 10,
     "end2": 61,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "tema",
@@ -4155,7 +4155,7 @@
     "start2": 142,
     "lemma_word_index2": 22,
     "end2": 145,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "tema",
@@ -4197,7 +4197,7 @@
     "start2": 115,
     "lemma_word_index2": 16,
     "end2": 118,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "tema",
@@ -4211,7 +4211,7 @@
     "start2": 157,
     "lemma_word_index2": 22,
     "end2": 160,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "tema",
@@ -4351,7 +4351,7 @@
     "start2": 43,
     "lemma_word_index2": 9,
     "end2": 46,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "tema",
@@ -4365,7 +4365,7 @@
     "start2": 148,
     "lemma_word_index2": 23,
     "end2": 151,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "tema",
@@ -4379,7 +4379,7 @@
     "start2": 32,
     "lemma_word_index2": 8,
     "end2": 35,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "tema",
@@ -4393,7 +4393,7 @@
     "start2": 21,
     "lemma_word_index2": 3,
     "end2": 23,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "tema",
@@ -4435,7 +4435,7 @@
     "start2": 10,
     "lemma_word_index2": 1,
     "end2": 13,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "tema",
@@ -4449,7 +4449,7 @@
     "start2": 8,
     "lemma_word_index2": 1,
     "end2": 11,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "tema",
@@ -4477,7 +4477,7 @@
     "start2": 10,
     "lemma_word_index2": 1,
     "end2": 13,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "tema",
@@ -4491,7 +4491,7 @@
     "start2": 22,
     "lemma_word_index2": 4,
     "end2": 25,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "tema",
@@ -4519,7 +4519,7 @@
     "start2": 45,
     "lemma_word_index2": 8,
     "end2": 50,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "tema",
@@ -4533,7 +4533,7 @@
     "start2": 76,
     "lemma_word_index2": 13,
     "end2": 79,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "tema",
@@ -4575,7 +4575,7 @@
     "start2": 12,
     "lemma_word_index2": 2,
     "end2": 15,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "tema",
@@ -4589,7 +4589,7 @@
     "start2": 90,
     "lemma_word_index2": 14,
     "end2": 93,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "tema",
@@ -4897,7 +4897,7 @@
     "start2": 50,
     "lemma_word_index2": 7,
     "end2": 53,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "tip",
@@ -4953,7 +4953,7 @@
     "start2": 10,
     "lemma_word_index2": 2,
     "end2": 13,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "tip",
@@ -4967,7 +4967,7 @@
     "start2": 6,
     "lemma_word_index2": 1,
     "end2": 8,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "tip",
@@ -5037,7 +5037,7 @@
     "start2": 17,
     "lemma_word_index2": 3,
     "end2": 20,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "tip",
@@ -5079,7 +5079,7 @@
     "start2": 72,
     "lemma_word_index2": 7,
     "end2": 75,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "tip",
@@ -5093,7 +5093,7 @@
     "start2": 72,
     "lemma_word_index2": 13,
     "end2": 74,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "tip",
@@ -5107,7 +5107,7 @@
     "start2": 146,
     "lemma_word_index2": 26,
     "end2": 148,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "tip",
@@ -5121,7 +5121,7 @@
     "start2": 38,
     "lemma_word_index2": 9,
     "end2": 41,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "tip",
@@ -5135,7 +5135,7 @@
     "start2": 109,
     "lemma_word_index2": 14,
     "end2": 113,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "tip",
@@ -5177,7 +5177,7 @@
     "start2": 176,
     "lemma_word_index2": 25,
     "end2": 179,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "tip",
@@ -5191,7 +5191,7 @@
     "start2": 23,
     "lemma_word_index2": 3,
     "end2": 26,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "tip",
@@ -5261,7 +5261,7 @@
     "start2": 41,
     "lemma_word_index2": 4,
     "end2": 43,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "tip",
@@ -5275,7 +5275,7 @@
     "start2": 100,
     "lemma_word_index2": 17,
     "end2": 105,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "tip",
@@ -5331,7 +5331,7 @@
     "start2": 3,
     "lemma_word_index2": 1,
     "end2": 5,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "tip",
@@ -5359,7 +5359,7 @@
     "start2": 60,
     "lemma_word_index2": 9,
     "end2": 63,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "tip",
@@ -5373,7 +5373,7 @@
     "start2": 54,
     "lemma_word_index2": 8,
     "end2": 57,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "tip",
@@ -5457,7 +5457,7 @@
     "start2": 53,
     "lemma_word_index2": 7,
     "end2": 57,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "tip",
@@ -5471,7 +5471,7 @@
     "start2": 152,
     "lemma_word_index2": 19,
     "end2": 154,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "tip",
@@ -5485,7 +5485,7 @@
     "start2": 57,
     "lemma_word_index2": 8,
     "end2": 61,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "tip",
@@ -5499,7 +5499,7 @@
     "start2": 5,
     "lemma_word_index2": 2,
     "end2": 7,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "tip",
@@ -5597,7 +5597,7 @@
     "start2": 85,
     "lemma_word_index2": 13,
     "end2": 87,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "tip",
@@ -5611,7 +5611,7 @@
     "start2": 13,
     "lemma_word_index2": 2,
     "end2": 15,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "tip",
@@ -5653,7 +5653,7 @@
     "start2": 118,
     "lemma_word_index2": 19,
     "end2": 121,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "tip",
@@ -5667,7 +5667,7 @@
     "start2": 66,
     "lemma_word_index2": 11,
     "end2": 70,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "tip",
@@ -5681,7 +5681,7 @@
     "start2": 226,
     "lemma_word_index2": 39,
     "end2": 229,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "tip",
@@ -5737,7 +5737,7 @@
     "start2": 42,
     "lemma_word_index2": 8,
     "end2": 44,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "tip",
@@ -5751,7 +5751,7 @@
     "start2": 35,
     "lemma_word_index2": 7,
     "end2": 37,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "tip",
@@ -5765,7 +5765,7 @@
     "start2": 23,
     "lemma_word_index2": 4,
     "end2": 26,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "tip",
@@ -5779,7 +5779,7 @@
     "start2": 42,
     "lemma_word_index2": 9,
     "end2": 46,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "tip",
@@ -5849,7 +5849,7 @@
     "start2": 56,
     "lemma_word_index2": 10,
     "end2": 59,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "tip",
@@ -5863,7 +5863,7 @@
     "start2": 26,
     "lemma_word_index2": 8,
     "end2": 28,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "tip",
@@ -5975,7 +5975,7 @@
     "start2": 64,
     "lemma_word_index2": 11,
     "end2": 67,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "tip",
@@ -5989,7 +5989,7 @@
     "start2": 156,
     "lemma_word_index2": 21,
     "end2": 159,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "tip",
@@ -6017,7 +6017,7 @@
     "start2": 22,
     "lemma_word_index2": 4,
     "end2": 24,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "tip",
@@ -6031,7 +6031,7 @@
     "start2": 34,
     "lemma_word_index2": 5,
     "end2": 37,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "tip",
@@ -6045,7 +6045,7 @@
     "start2": 52,
     "lemma_word_index2": 7,
     "end2": 55,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "tip",
@@ -6143,7 +6143,7 @@
     "start2": 245,
     "lemma_word_index2": 41,
     "end2": 248,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "klop",
@@ -6241,7 +6241,7 @@
     "start2": 113,
     "lemma_word_index2": 19,
     "end2": 117,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "klop",
@@ -6255,7 +6255,7 @@
     "start2": 16,
     "lemma_word_index2": 3,
     "end2": 20,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "klop",
@@ -6311,7 +6311,7 @@
     "start2": 35,
     "lemma_word_index2": 7,
     "end2": 39,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "klop",
@@ -6325,7 +6325,7 @@
     "start2": 58,
     "lemma_word_index2": 14,
     "end2": 61,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "klop",
@@ -6395,7 +6395,7 @@
     "start2": 25,
     "lemma_word_index2": 3,
     "end2": 29,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "klop",
@@ -6451,7 +6451,7 @@
     "start2": 37,
     "lemma_word_index2": 7,
     "end2": 41,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "klop",
@@ -6563,7 +6563,7 @@
     "start2": 81,
     "lemma_word_index2": 14,
     "end2": 85,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "klop",
@@ -6577,7 +6577,7 @@
     "start2": 147,
     "lemma_word_index2": 24,
     "end2": 151,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "klop",
@@ -6591,7 +6591,7 @@
     "start2": 8,
     "lemma_word_index2": 2,
     "end2": 12,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "klop",
@@ -6773,7 +6773,7 @@
     "start2": 49,
     "lemma_word_index2": 10,
     "end2": 52,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "klop",
@@ -6857,7 +6857,7 @@
     "start2": 37,
     "lemma_word_index2": 6,
     "end2": 40,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "klop",
@@ -6871,7 +6871,7 @@
     "start2": 78,
     "lemma_word_index2": 11,
     "end2": 83,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "klop",
@@ -6885,7 +6885,7 @@
     "start2": 219,
     "lemma_word_index2": 33,
     "end2": 223,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "klop",
@@ -7081,7 +7081,7 @@
     "start2": 10,
     "lemma_word_index2": 2,
     "end2": 14,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "klop",
@@ -7095,7 +7095,7 @@
     "start2": 12,
     "lemma_word_index2": 3,
     "end2": 18,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "klop",
@@ -7137,7 +7137,7 @@
     "start2": 85,
     "lemma_word_index2": 11,
     "end2": 89,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "klop",
@@ -7151,7 +7151,7 @@
     "start2": 10,
     "lemma_word_index2": 2,
     "end2": 14,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "klop",
@@ -7305,7 +7305,7 @@
     "start2": 36,
     "lemma_word_index2": 5,
     "end2": 40,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "klop",
@@ -7319,7 +7319,7 @@
     "start2": 194,
     "lemma_word_index2": 32,
     "end2": 199,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "klop",
@@ -7333,7 +7333,7 @@
     "start2": 21,
     "lemma_word_index2": 4,
     "end2": 24,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "klop",
@@ -7389,7 +7389,7 @@
     "start2": 119,
     "lemma_word_index2": 18,
     "end2": 123,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "klop",
@@ -7403,7 +7403,7 @@
     "start2": 20,
     "lemma_word_index2": 3,
     "end2": 25,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "klop",
@@ -7417,7 +7417,7 @@
     "start2": 59,
     "lemma_word_index2": 11,
     "end2": 64,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "klop",
@@ -7445,7 +7445,7 @@
     "start2": 150,
     "lemma_word_index2": 24,
     "end2": 154,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "klop",
@@ -7459,7 +7459,7 @@
     "start2": 193,
     "lemma_word_index2": 33,
     "end2": 196,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "klop",
@@ -7529,7 +7529,7 @@
     "start2": 86,
     "lemma_word_index2": 15,
     "end2": 90,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "klop",
@@ -7543,7 +7543,7 @@
     "start2": 59,
     "lemma_word_index2": 13,
     "end2": 63,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "klop",
@@ -7683,7 +7683,7 @@
     "start2": 41,
     "lemma_word_index2": 9,
     "end2": 46,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "klop",
@@ -7767,7 +7767,7 @@
     "start2": 136,
     "lemma_word_index2": 27,
     "end2": 141,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "klop",
@@ -7781,7 +7781,7 @@
     "start2": 130,
     "lemma_word_index2": 21,
     "end2": 135,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "list",
@@ -7823,7 +7823,7 @@
     "start2": 144,
     "lemma_word_index2": 22,
     "end2": 148,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "list",
@@ -7837,7 +7837,7 @@
     "start2": 12,
     "lemma_word_index2": 2,
     "end2": 16,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "list",
@@ -7977,7 +7977,7 @@
     "start2": 96,
     "lemma_word_index2": 15,
     "end2": 99,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "list",
@@ -7991,7 +7991,7 @@
     "start2": 245,
     "lemma_word_index2": 39,
     "end2": 249,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "list",
@@ -8033,7 +8033,7 @@
     "start2": 156,
     "lemma_word_index2": 23,
     "end2": 160,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "list",
@@ -8061,7 +8061,7 @@
     "start2": 24,
     "lemma_word_index2": 4,
     "end2": 28,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "list",
@@ -8117,7 +8117,7 @@
     "start2": 59,
     "lemma_word_index2": 10,
     "end2": 64,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "list",
@@ -8243,7 +8243,7 @@
     "start2": 0,
     "lemma_word_index2": 0,
     "end2": 3,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "list",
@@ -8285,7 +8285,7 @@
     "start2": 98,
     "lemma_word_index2": 16,
     "end2": 102,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "list",
@@ -8299,7 +8299,7 @@
     "start2": 26,
     "lemma_word_index2": 4,
     "end2": 30,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "list",
@@ -8327,7 +8327,7 @@
     "start2": 181,
     "lemma_word_index2": 26,
     "end2": 185,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "list",
@@ -8341,7 +8341,7 @@
     "start2": 140,
     "lemma_word_index2": 22,
     "end2": 144,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "list",
@@ -8397,7 +8397,7 @@
     "start2": 19,
     "lemma_word_index2": 3,
     "end2": 22,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "list",
@@ -8453,7 +8453,7 @@
     "start2": 15,
     "lemma_word_index2": 3,
     "end2": 18,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "list",
@@ -8593,7 +8593,7 @@
     "start2": 145,
     "lemma_word_index2": 23,
     "end2": 149,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "list",
@@ -8621,7 +8621,7 @@
     "start2": 43,
     "lemma_word_index2": 7,
     "end2": 47,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "list",
@@ -8705,7 +8705,7 @@
     "start2": 6,
     "lemma_word_index2": 1,
     "end2": 9,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "list",
@@ -8859,7 +8859,7 @@
     "start2": 18,
     "lemma_word_index2": 2,
     "end2": 22,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "list",
@@ -8915,7 +8915,7 @@
     "start2": 159,
     "lemma_word_index2": 27,
     "end2": 164,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "prst",
@@ -8957,7 +8957,7 @@
     "start2": 7,
     "lemma_word_index2": 2,
     "end2": 12,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "prst",
@@ -8971,7 +8971,7 @@
     "start2": 151,
     "lemma_word_index2": 26,
     "end2": 155,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "prst",
@@ -9013,7 +9013,7 @@
     "start2": 61,
     "lemma_word_index2": 9,
     "end2": 66,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "prst",
@@ -9125,7 +9125,7 @@
     "start2": 206,
     "lemma_word_index2": 37,
     "end2": 210,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "prst",
@@ -9139,7 +9139,7 @@
     "start2": 33,
     "lemma_word_index2": 5,
     "end2": 36,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "prst",
@@ -9167,7 +9167,7 @@
     "start2": 56,
     "lemma_word_index2": 8,
     "end2": 60,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "prst",
@@ -9181,7 +9181,7 @@
     "start2": 78,
     "lemma_word_index2": 15,
     "end2": 81,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "prst",
@@ -9251,7 +9251,7 @@
     "start2": 0,
     "lemma_word_index2": 0,
     "end2": 4,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "prst",
@@ -9265,7 +9265,7 @@
     "start2": 7,
     "lemma_word_index2": 3,
     "end2": 11,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "prst",
@@ -9279,7 +9279,7 @@
     "start2": 37,
     "lemma_word_index2": 6,
     "end2": 42,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "prst",
@@ -9293,7 +9293,7 @@
     "start2": 86,
     "lemma_word_index2": 11,
     "end2": 90,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "prst",
@@ -9335,7 +9335,7 @@
     "start2": 202,
     "lemma_word_index2": 33,
     "end2": 206,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "prst",
@@ -9349,7 +9349,7 @@
     "start2": 73,
     "lemma_word_index2": 11,
     "end2": 77,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "prst",
@@ -9405,7 +9405,7 @@
     "start2": 24,
     "lemma_word_index2": 5,
     "end2": 29,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "prst",
@@ -9419,7 +9419,7 @@
     "start2": 67,
     "lemma_word_index2": 11,
     "end2": 72,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "prst",
@@ -9433,7 +9433,7 @@
     "start2": 42,
     "lemma_word_index2": 7,
     "end2": 46,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "prst",
@@ -9447,7 +9447,7 @@
     "start2": 18,
     "lemma_word_index2": 2,
     "end2": 22,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "prst",
@@ -9461,7 +9461,7 @@
     "start2": 25,
     "lemma_word_index2": 4,
     "end2": 29,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "prst",
@@ -9503,7 +9503,7 @@
     "start2": 56,
     "lemma_word_index2": 11,
     "end2": 60,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "prst",
@@ -9517,7 +9517,7 @@
     "start2": 76,
     "lemma_word_index2": 12,
     "end2": 81,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "prst",
@@ -9531,7 +9531,7 @@
     "start2": 66,
     "lemma_word_index2": 10,
     "end2": 69,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "prst",
@@ -9545,7 +9545,7 @@
     "start2": 1,
     "lemma_word_index2": 1,
     "end2": 6,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "prst",
@@ -9587,7 +9587,7 @@
     "start2": 32,
     "lemma_word_index2": 6,
     "end2": 36,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "prst",
@@ -9629,7 +9629,7 @@
     "start2": 73,
     "lemma_word_index2": 12,
     "end2": 78,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "prst",
@@ -9643,7 +9643,7 @@
     "start2": 110,
     "lemma_word_index2": 21,
     "end2": 113,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "prst",
@@ -9727,7 +9727,7 @@
     "start2": 47,
     "lemma_word_index2": 8,
     "end2": 52,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "prst",
@@ -9741,7 +9741,7 @@
     "start2": 129,
     "lemma_word_index2": 25,
     "end2": 133,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "prst",
@@ -9867,7 +9867,7 @@
     "start2": 67,
     "lemma_word_index2": 16,
     "end2": 72,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "prst",
@@ -9895,7 +9895,7 @@
     "start2": 0,
     "lemma_word_index2": 0,
     "end2": 4,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "prst",
@@ -9909,7 +9909,7 @@
     "start2": 60,
     "lemma_word_index2": 13,
     "end2": 64,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "prst",
@@ -9965,7 +9965,7 @@
     "start2": 40,
     "lemma_word_index2": 6,
     "end2": 45,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "prst",
@@ -9979,7 +9979,7 @@
     "start2": 188,
     "lemma_word_index2": 33,
     "end2": 192,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "prst",
@@ -9993,7 +9993,7 @@
     "start2": 33,
     "lemma_word_index2": 6,
     "end2": 37,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "prst",
@@ -10007,7 +10007,7 @@
     "start2": 60,
     "lemma_word_index2": 13,
     "end2": 64,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "prst",
@@ -10063,7 +10063,7 @@
     "start2": 70,
     "lemma_word_index2": 12,
     "end2": 75,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "prst",
@@ -10077,7 +10077,7 @@
     "start2": 189,
     "lemma_word_index2": 24,
     "end2": 193,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "prst",
@@ -10133,7 +10133,7 @@
     "start2": 57,
     "lemma_word_index2": 12,
     "end2": 61,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "prst",
@@ -10203,7 +10203,7 @@
     "start2": 76,
     "lemma_word_index2": 11,
     "end2": 80,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "prst",
@@ -10245,7 +10245,7 @@
     "start2": 45,
     "lemma_word_index2": 6,
     "end2": 49,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "prst",
@@ -10301,7 +10301,7 @@
     "start2": 30,
     "lemma_word_index2": 5,
     "end2": 33,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "prst",
@@ -10469,7 +10469,7 @@
     "start2": 98,
     "lemma_word_index2": 20,
     "end2": 102,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "prst",
@@ -10539,7 +10539,7 @@
     "start2": 106,
     "lemma_word_index2": 22,
     "end2": 111,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "prst",
@@ -10553,7 +10553,7 @@
     "start2": 36,
     "lemma_word_index2": 8,
     "end2": 40,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "prst",
@@ -10595,7 +10595,7 @@
     "start2": 42,
     "lemma_word_index2": 8,
     "end2": 46,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "prst",
@@ -10651,7 +10651,7 @@
     "start2": 50,
     "lemma_word_index2": 8,
     "end2": 54,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "prst",
@@ -10665,7 +10665,7 @@
     "start2": 185,
     "lemma_word_index2": 26,
     "end2": 188,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "prst",
@@ -10679,7 +10679,7 @@
     "start2": 39,
     "lemma_word_index2": 5,
     "end2": 43,
-    "same_context": false
+    "same_context": true
   },
   {
     "word": "prst",
