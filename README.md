@@ -1,5 +1,5 @@
 # Project 3: Cross-lingual sense disambiguation
-Group name: Dropouts
+Group name: Absolventi
 
 Group members: Erazem Pušnik, Rok Miklavčič, and Aljaž Šmaljcelj
 
